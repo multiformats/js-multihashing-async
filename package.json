@@ -1,0 +1,24 @@
+{
+  "name": "multihashing",
+  "version": "0.1.0",
+  "description": "multiple hash functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'no test yet' && exit -1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jbenet/node-multihashing.git"
+  },
+  "keywords": [
+    "multihash"
+  ],
+  "author": "Juan Benet <juan@benet.ai> (http://juan.benet.ai/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbenet/node-multihashing/issues"
+  },
+  "dependencies": {
+    "multihashes": "~0.1.1"
+  }
+}
