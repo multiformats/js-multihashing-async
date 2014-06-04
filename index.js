@@ -9,6 +9,9 @@ function Multihashing(buf, func, len) {
   return multihash.encode(mh.digest(buf, func, len), func, len)
 }
 
+// expose multihash itself, to avoid silly double requires.
+mh.multihash = multihash
+
 mh.digest = function(buf, func, length) {
   digest = mh.createHash(func).update(buf).digest()
 
