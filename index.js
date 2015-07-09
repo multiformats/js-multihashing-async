@@ -13,7 +13,7 @@ function Multihashing(buf, func, len) {
 mh.multihash = multihash
 
 mh.digest = function(buf, func, length) {
-  digest = mh.createHash(func).update(buf).digest()
+  var digest = mh.createHash(func).update(buf).digest()
 
   if (length)
     digest = digest.slice(0, length)
