@@ -1,11 +1,11 @@
-# node-multihashing
+# js-multihashing
 
 Use all the functions in [multihash](//github.com/jbenet/multihash).
 
 > Wait, why, how is this different from Node `crypto`?
 
 This module just makes working with multihashes a bit nicer.
-[node-multihash](//github.com/jbenet/node-multihash) is only for
+[js-multihash](//github.com/jbenet/js-multihash) is only for
 encoding/decoding multihashes, and does not depend on other libs.
 This module will depend on various implementations for each hash.
 For now, it just uses `crypto`, but will use `sha3` and `blake2`, etc.

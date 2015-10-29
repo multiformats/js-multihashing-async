@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jbenet/node-multihashing.git"
+    "url": "git://github.com/jbenet/js-multihashing.git"
   },
   "keywords": [
     "multihash"
@@ -16,11 +16,11 @@
   "author": "Juan Benet <juan@benet.ai> (http://juan.benet.ai/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jbenet/node-multihashing/issues"
+    "url": "https://github.com/jbenet/js-multihashing/issues"
   },
   "dependencies": {
     "multihashes": "~0.1.2"
   },
   "devDependencies": {},
-  "homepage": "https://github.com/jbenet/node-multihashing"
+  "homepage": "https://github.com/jbenet/js-multihashing"
 }
