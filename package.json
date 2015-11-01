@@ -5,8 +5,12 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "./node_modules/.bin/standard",
-    "test": "echo 'no test yet' && exit -1"
+    "test": "echo 'no test yet' && exit 0"
   },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/jbenet/js-multihashing.git"
@@ -23,6 +27,7 @@
     "multihashes": "~0.1.2"
   },
   "devDependencies": {
+    "pre-commit": "^1.1.2",
     "standard": "^5.3.1"
   },
   "homepage": "https://github.com/jbenet/js-multihashing"
