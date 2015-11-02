@@ -1,5 +1,5 @@
 var multihash = require('multihashes')
-var crypto = require('crypto')
+var crypto = require('webcrypto')
 // var sha3 = require('sha3')
 // sha3 broken. See: https://github.com/phusion/node-sha3/issues/5
 

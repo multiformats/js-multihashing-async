@@ -32,7 +32,8 @@
     "url": "https://github.com/jbenet/js-multihashing/issues"
   },
   "dependencies": {
-    "multihashes": "^0.2.0"
+    "multihashes": "^0.2.0",
+    "webcrypto": "^0.1.0"
   },
   "devDependencies": {
     "browserify": "^12.0.1",
