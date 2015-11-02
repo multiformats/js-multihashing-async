@@ -12,7 +12,8 @@
   },
   "pre-commit": [
     "lint",
-    "test"
+    "test:node",
+    "test:browser:q"
   ],
   "standard": {
     "ignore": [
