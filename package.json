@@ -24,7 +24,7 @@
     "url": "https://github.com/jbenet/js-multihashing/issues"
   },
   "dependencies": {
-    "multihashes": "~0.1.2"
+    "multihashes": "^0.2.0"
   },
   "devDependencies": {
     "pre-commit": "^1.1.2",
