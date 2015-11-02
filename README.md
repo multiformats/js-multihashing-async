@@ -1,4 +1,7 @@
-# js-multihashing
+js-multihashing
+===============
+
+[![](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square)](http://ipn.io) [![](https://img.shields.io/badge/freenode-%23ipfs-blue.svg?style=flat-square)](http://webchat.freenode.net/?channels=%23ipfs) ![](https://img.shields.io/badge/coverage-%3F-yellow.svg?style=flat-square) [![Dependency Status](https://david-dm.org/jbenet/multihashing.svg?style=flat-square)](https://david-dm.org/jbenet/js-multihashing) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 
 Use all the functions in [multihash](//github.com/jbenet/multihash).
 
@@ -9,6 +12,34 @@ This module just makes working with multihashes a bit nicer.
 encoding/decoding multihashes, and does not depend on other libs.
 This module will depend on various implementations for each hash.
 For now, it just uses `crypto`, but will use `sha3` and `blake2`, etc.
+
+## Installation
+
+### In Node.js through npm
+
+```bash
+$ npm install --save multihashing
+```
+
+```javascript
+var multihashing = require('multihashing')
+```
+
+### In the Browser through browserify
+
+Same as in Node.js, you just have to [browserify](https://github.com/substack/js-browserify) the code before serving it. See the browserify repo for how to do that.
+
+### In the Browser through `<script>` tag
+
+Make the [multihashing.min.js](/dist/multihashing.min.js) available through your server and load it using a normal `<script>` tag, this will export the `multihashing` constructor on the `window` object, such that:
+
+```JavaScript
+var multihashing = window.multihashing
+```
+
+#### Gotchas
+
+You will need to use Node.js `Buffer` API compatible, if you are running inside the browser, you can access it by `multihashing.Buffer` or you can install Feross's [Buffer](https://github.com/feross/buffer).
 
 ## Usage
 
