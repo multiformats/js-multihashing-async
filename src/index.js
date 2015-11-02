@@ -5,6 +5,8 @@ var crypto = require('crypto')
 
 var mh = module.exports = Multihashing
 
+mh.Buffer = Buffer // for browser things
+
 function Multihashing (buf, func, len) {
   return multihash.encode(mh.digest(buf, func, len), func, len)
 }
