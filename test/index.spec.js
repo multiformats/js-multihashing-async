@@ -34,4 +34,22 @@ describe('multihashing', () => {
       new Buffer('134014f301f31be243f34c5668937883771fa381002f1aaa5f31b3f78e500b66ff2f4f8ea5e3c9f5a61bd073e2452c480484b02e030fb239315a2577f7ae156af177', 'hex')
     )
   })
+
+  it('cuts the length', () => {
+    const buf = new Buffer('beep boop')
+
+    expect(
+      multihashing(buf, 'sha2-256', 10)
+    ).to.be.eql(
+      new Buffer('120a90ea688e275d58056732', 'hex')
+    )
+  })
+
+  it('throws on non implemented func', () => {
+    expect(
+      () => multihashing(new Buffer('beep boop'), 'blake2b')
+    ).to.throw(
+      /not yet supported/
+    )
+  })
 })
