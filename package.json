@@ -41,5 +41,11 @@
     "chai": "^3.5.0",
     "pre-commit": "^1.1.2"
   },
-  "homepage": "https://github.com/jbenet/js-multihashing"
+  "homepage": "https://github.com/jbenet/js-multihashing",
+  "contributors": [
+    "David Dias <daviddias.p@gmail.com>",
+    "David Dias <mail@daviddias.me>",
+    "Juan Batiz-Benet <juan@benet.ai>",
+    "dignifiedquire <dignifiedquire@gmail.com>"
+  ]
 }
