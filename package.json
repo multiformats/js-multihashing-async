@@ -1,6 +1,6 @@
 {
   "name": "multihashing",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "multiple hash functions",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
