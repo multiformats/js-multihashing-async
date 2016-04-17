@@ -1,7 +1,13 @@
 js-multihashing
 ===============
 
-[![](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square)](http://ipn.io) [![](https://img.shields.io/badge/freenode-%23ipfs-blue.svg?style=flat-square)](http://webchat.freenode.net/?channels=%23ipfs) ![](https://img.shields.io/badge/coverage-%3F-yellow.svg?style=flat-square) [![Dependency Status](https://david-dm.org/jbenet/multihashing.svg?style=flat-square)](https://david-dm.org/jbenet/js-multihashing) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
+[![](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square)](http://ipn.io)
+[![](https://img.shields.io/badge/project-IPFS-blue.svg?style=flat-square)](http://ipfs.io/)
+[![](https://img.shields.io/badge/freenode-%23ipfs-blue.svg?style=flat-square)](http://webchat.freenode.net/?channels=%23ipfs)
+[![Coverage Status](https://coveralls.io/repos/github/jbenet/js-multihashing/badge.svg?branch=master)](https://coveralls.io/github/jbenet/js-multihashing?branch=master)
+[![Travis CI](https://travis-ci.org/jbenet/js-multihashing.svg?branch=master)](https://travis-ci.org/jbenet/js-multihashing)
+[![Circle CI](https://circleci.com/gh/jbenet/js-multihashing.svg?style=svg)](https://circleci.com/gh/jbenet/js-multihashing)
+[![Dependency Status](https://david-dm.org/jbenet/js-multihashing.svg?style=flat-square)](https://david-dm.org/jbenet/js-multihashing) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 
 Use all the functions in [multihash](//github.com/jbenet/multihash).
 
@@ -21,20 +27,26 @@ For now, it just uses `crypto`, but will use `sha3` and `blake2`, etc.
 $ npm install --save multihashing
 ```
 
-```javascript
+```js
 var multihashing = require('multihashing')
 ```
 
-### In the Browser through browserify
+## Use in a browser with browserify, webpack or any other bundler
 
-Same as in Node.js, you just have to [browserify](https://github.com/substack/js-browserify) the code before serving it. See the browserify repo for how to do that.
+The code published to npm that gets loaded on require is in fact a ES5 transpiled version with the right shims added. This means that you can require it and use with your favourite bundler without having to adjust asset management process.
 
-### In the Browser through `<script>` tag
+```js
+var multihashing = require('multihashing')
+```
 
-Make the [multihashing.min.js](/dist/multihashing.min.js) available through your server and load it using a normal `<script>` tag, this will export the `multihashing` constructor on the `window` object, such that:
+## Use in a browser Using a script tag
 
-```JavaScript
-var multihashing = window.multihashing
+Loading this module through a script tag will make the `multihashing` obj available in the global namespace.
+
+```html
+<script src="https://npmcdn.com/multihashing/dist/index.min.js"></script>
+<!-- OR -->
+<script src="https://npmcdn.com/multihashing/dist/index.js"></script>
 ```
 
 #### Gotchas
@@ -92,6 +104,18 @@ h.digest()
 > console.log(multihashing.digest(buf, 'sha2-512'))
 <SlowBuffer 14 f3 01 f3 1b e2 43 f3 4c 56 68 93 78 83 77 1f a3 81 00 2f 1a aa 5f 31 b3 f7 8e 50 0b 66 ff 2f 4f 8e a5 e3 c9 f5 a6 1b d0 73 e2 45 2c 48 04 84 b0 2e 03 ...>
 ```
+
+## API
+
+### `multihashing(buf, func, length)`
+
+### `digest(buf, func, length)`
+
+### `createHash(func, length)`
+
+### `functions`
+
+An object mapping hexcodes to their hash functions.
 
 ## License
 
