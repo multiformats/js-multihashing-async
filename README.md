@@ -62,7 +62,7 @@ var buf = new Buffer('beep boop')
 // by default returns a multihash.
 multihashing(buf, 'sha1')
 
-// Use `.digest(...)` if you want only the hash digest.
+// Use `.digest(...)` if you want only the hash digest (drops the prefix indicating the hash type).
 multihashing.digest(buf, 'sha1')
 
 // Use `.createHash(...)` for a `crypto.createHash` interface.
