@@ -2,6 +2,7 @@ js-multihashing
 ===============
 
 [![](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square)](http://ipn.io)
+[![](https://img.shields.io/badge/project-multiformats-blue.svg?style=flat-square)](http://github.com/multiformats/multiformats)
 [![](https://img.shields.io/badge/project-IPFS-blue.svg?style=flat-square)](http://ipfs.io/)
 [![](https://img.shields.io/badge/freenode-%23ipfs-blue.svg?style=flat-square)](http://webchat.freenode.net/?channels=%23ipfs)
 [![Coverage Status](https://coveralls.io/repos/github/jbenet/js-multihashing/badge.svg?branch=master)](https://coveralls.io/github/jbenet/js-multihashing?branch=master)
@@ -9,9 +10,9 @@ js-multihashing
 [![Circle CI](https://circleci.com/gh/jbenet/js-multihashing.svg?style=svg)](https://circleci.com/gh/jbenet/js-multihashing)
 [![Dependency Status](https://david-dm.org/jbenet/js-multihashing.svg?style=flat-square)](https://david-dm.org/jbenet/js-multihashing) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 
-Use all the functions in [multihash](//github.com/jbenet/multihash).
+> Use all the functions in [multihash](https://github.com/multiformats/multihash).
 
-> Wait, why, how is this different from Node `crypto`?
+#### Wait, why, how is this different from Node `crypto`?
 
 This module just makes working with multihashes a bit nicer.
 [js-multihash](//github.com/jbenet/js-multihash) is only for
@@ -19,7 +20,27 @@ encoding/decoding multihashes, and does not depend on other libs.
 This module will depend on various implementations for each hash.
 For now, it just uses `crypto`, but will use `sha3` and `blake2`, etc.
 
-## Installation
+## Table of Contents
+
+- [Install](#install)
+  - [In Node.js through npm](#in-nodejs-through-npm)
+  - [Use in a browser with browserify, webpack or any other bundler](#use-in-a-browser-with-browserify-webpack-or-any-other-bundler)
+  - [Use in a browser Using a script tag](#use-in-a-browser-using-a-script-tag)
+    - [Gotchas](#gotchas)
+- [Usage](#usage)
+- [Examples](#examples)
+  - [Multihash output](#multihash-output)
+  - [Raw digest output](#raw-digest-output)
+- [API](#api)
+  - [`multihashing(buf, func, length)`](#multihashingbuf-func-length)
+  - [`digest(buf, func, length)`](#digestbuf-func-length)
+  - [`createHash(func, length)`](#createhashfunc-length)
+  - [`functions`](#functions)
+- [Maintainers](#maintainers)
+- [Contribute](#contribute)
+- [License](#license)
+
+## Install
 
 ### In Node.js through npm
 
@@ -31,7 +52,7 @@ $ npm install --save multihashing
 var multihashing = require('multihashing')
 ```
 
-## Use in a browser with browserify, webpack or any other bundler
+### Use in a browser with browserify, webpack or any other bundler
 
 The code published to npm that gets loaded on require is in fact a ES5 transpiled version with the right shims added. This means that you can require it and use with your favourite bundler without having to adjust asset management process.
 
@@ -39,7 +60,7 @@ The code published to npm that gets loaded on require is in fact a ES5 transpile
 var multihashing = require('multihashing')
 ```
 
-## Use in a browser Using a script tag
+### Use in a browser Using a script tag
 
 Loading this module through a script tag will make the `multihashing` obj available in the global namespace.
 
@@ -117,6 +138,18 @@ h.digest()
 
 An object mapping hexcodes to their hash functions.
 
+## Maintainers
+
+Captain: [@diasdavid](https://github.com/diasdavid).
+
+## Contribute
+
+Contributions welcome. Please check out [the issues](https://github.com/multiformats/js-multihashing/issues).
+
+Check out our [contributing document](https://github.com/multiformats/multiformats/blob/master/contributing.md) for more information on how we work, and about contributing in general. Please be aware that all interactions related to multiformats are subject to the IPFS [Code of Conduct](https://github.com/ipfs/community/blob/master/code-of-conduct.md).
+
+Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
+
 ## License
 
-MIT
+[MIT](LICENSE) © Protocol Labs Inc.
