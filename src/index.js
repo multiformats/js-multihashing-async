@@ -1,55 +1,75 @@
 'use strict'
 
 const multihash = require('multihashes')
-const crypto = require('webcrypto')
+const crypto = require('./crypto')
 
-const mh = module.exports = Multihashing
+module.exports = Multihashing
 
-mh.Buffer = Buffer // for browser things
-
-function Multihashing (buf, func, length) {
-  return multihash.encode(mh.digest(buf, func, length), func, length)
-}
-
-// expose multihash itself, to avoid silly double requires.
-mh.multihash = multihash
-
-mh.digest = function (buf, func, length) {
-  let digest = mh.createHash(func).update(buf).digest()
-
-  if (length) {
-    digest = digest.slice(0, length)
+function Multihashing (buf, func, length, callback) {
+  if (typeof length === 'function') {
+    callback = length
+    length = undefined
   }
 
-  return digest
+  Multihashing.digest(buf, func, length, (err, digest) => {
+    if (err) {
+      return callback(err)
+    }
+
+    callback(null, multihash.encode(digest, func, length))
+  })
 }
 
-mh.createHash = function (func, length) {
+Multihashing.Buffer = Buffer // for browser things
+
+// expose multihash itself, to avoid silly double requires.
+Multihashing.multihash = multihash
+
+Multihashing.digest = function (buf, func, length, callback) {
+  if (typeof length === 'function') {
+    callback = length
+    length = undefined
+  }
+
+  if (!callback) {
+    throw new Error('Missing callback')
+  }
+
+  let cb = callback
+  if (length) {
+    cb = (err, digest) => {
+      if (err) {
+        return callback(err)
+      }
+
+      callback(null, digest.slice(0, length))
+    }
+  }
+
+  let hash
+  try {
+    hash = Multihashing.createHash(func)
+  } catch (err) {
+    return cb(err)
+  }
+
+  hash(buf, cb)
+}
+
+Multihashing.createHash = function (func) {
   func = multihash.coerceCode(func)
-  if (!mh.functions[func]) {
+  if (!Multihashing.functions[func]) {
     throw new Error('multihash function ' + func + ' not yet supported')
   }
 
-  return mh.functions[func]()
+  return Multihashing.functions[func]
 }
 
-mh.functions = {
-  0x11: gsha1,
-  0x12: gsha2_256,
-  0x13: gsha2_512
-  // 0x14: gsha3 // not implemented yet
+Multihashing.functions = {
+  0x11: crypto.sha1,
+  0x12: crypto.sha2256,
+  0x13: crypto.sha2512,
+  0x14: crypto.sha3
   // 0x40: blake2b, // not implemented yet
   // 0x41: blake2s, // not implemented yet
-}
-
-function gsha1 () {
-  return crypto.createHash('sha1')
-}
-
-function gsha2_256 () {
-  return crypto.createHash('sha256')
-}
-
-function gsha2_512 () {
-  return crypto.createHash('sha512')
 }

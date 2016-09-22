@@ -4,14 +4,17 @@
   "description": "multiple hash functions",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
+  "browser": {
+    "./src/crypto.js": "./src/crypto-browser.js"
+  },
   "scripts": {
-    "test": "aegir-test",
-    "test:browser": "aegir-test browser",
+    "test": "PHANTOM=off aegir-test",
+    "test:browser": "PHANTOM=off aegir-test browser",
     "test:node": "aegir-test node",
     "lint": "aegir-lint",
-    "release": "aegir-release",
-    "release-minor": "aegir-release minor",
-    "release-major": "aegir-release major",
+    "release": "PHANTOM=off aegir-release",
+    "release-minor": "PHANTOM=off aegir-release minor",
+    "release-major": "PHANTOM=off aegir-release major",
     "build": "aegir-build",
     "coverage": "aegir-coverage",
     "coverage-publish": "aegir-coverage publish"
@@ -33,11 +36,12 @@
     "url": "https://github.com/jbenet/js-multihashing/issues"
   },
   "dependencies": {
+    "browserify-sha3": "0.0.2",
     "multihashes": "^0.2.0",
-    "webcrypto": "^0.1.0"
+    "sha3": "^1.2.0"
   },
   "devDependencies": {
-    "aegir": "^2.1.1",
+    "aegir": "^8.1.0",
     "chai": "^3.5.0",
     "pre-commit": "^1.1.2"
   },
