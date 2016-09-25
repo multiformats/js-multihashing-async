@@ -11,6 +11,10 @@ function Multihashing (buf, func, length, callback) {
     length = undefined
   }
 
+  if (!callback) {
+    throw new Error('Missing callback')
+  }
+
   Multihashing.digest(buf, func, length, (err, digest) => {
     if (err) {
       return callback(err)

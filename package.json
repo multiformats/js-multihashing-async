@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
   "browser": {
-    "./src/crypto.js": "./src/crypto-browser.js"
+    "./src/crypto.js": "./src/crypto-browser.js",
+    "./lib/crypto.js": "./lib/crypto-browser.js"
   },
   "scripts": {
     "test": "PHANTOM=off aegir-test",
@@ -17,7 +18,8 @@
     "release-major": "PHANTOM=off aegir-release major",
     "build": "aegir-build",
     "coverage": "aegir-coverage",
-    "coverage-publish": "aegir-coverage publish"
+    "coverage-publish": "aegir-coverage publish",
+    "bench": "node benchmarks/hash.js"
   },
   "pre-commit": [
     "lint",
@@ -42,6 +44,7 @@
   },
   "devDependencies": {
     "aegir": "^8.1.0",
+    "benchmark": "^2.1.1",
     "chai": "^3.5.0",
     "pre-commit": "^1.1.2"
   },
