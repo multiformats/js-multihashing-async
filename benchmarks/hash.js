@@ -3,7 +3,7 @@
 const Benchmark = require('benchmark')
 const multihashing = require('../src')
 
-const suite = new Benchmark.Suite('multihashing')
+const suite = new Benchmark.Suite('multihashing-async')
 const list = []
 
 const algs = ['sha1', 'sha2-256', 'sha2-512', 'sha3']
