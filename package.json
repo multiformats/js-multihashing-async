@@ -1,6 +1,6 @@
 {
   "name": "multihashing-async",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "multiple hash functions",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
