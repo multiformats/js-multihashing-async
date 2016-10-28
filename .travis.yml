@@ -1,30 +1,37 @@
 sudo: false
 language: node_js
 node_js:
-- 4
-- 6
-- stable
+  - 4
+  - 6
+  - stable
 before_install:
-- npm install -g npm
+  - npm install -g npm
 script:
-- npm run lint
-- npm test
-- npm run coverage
+  - npm run lint
+  - npm test
+  - npm run coverage
 before_script:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
 after_success:
-- npm run coverage-publish
+  - npm run coverage-publish
 env:
   matrix:
-  - CXX=g++-4.8
+    - CXX=g++-4.8
   global:
     - SAUCE_USERNAME=js-mh-async
-    - secure: gkYffdzshG1A8Se3ifm2QNyhxWRRAvEIjKpjFFPwMzGtErjX57tH1ce8D3v7ImI6LdhCr19+DhjXZysqNrEBhUILwCxLR/48wuxZo/pmbs0s6o9Zh2fpxlISeCaFdH95e3uQq+oi/hkDou+TLwatirHd2tg1+xcsQo+D9h0I3Yx8VJmdv6ch252toWljvp8dTY6aojoX7MSqCggcukr3uzr3dZtuDugPTB2VCDj680HalLu5Hto00iVBIEqOvhwrOufNdTriT1hM4qjVGlfroV3+76KMncZvGA0nA3K1NqklxSL+RCE+8lWH7HcwViNUngETk6r9jm33K33DtY+P3XWKyokLGALKxXF9xm+J+o+1A14Ab+p9h4e84GFbWXzslg+szgQPY0OX67Ahb+SBU4JlMSO+eHaym6r6uMNJ6AIdO8ugFnVuXgtjQstq2h7aaCoZ5j0w7WtS4j96KkrmL82HWWDSeymgkYrPTMsM/ZsylKDTnWOMiSp+uoEEUf+aJvraDGvlpC62lklrz0z/1bm4ZgelseUUSxfAF2ibKgfXxJw6FHjo+V6xu7KY7yPyOZUSCHh+KuhByS/tvdo0GbN5zKOhUEJTx6Fc6Aj+ArlkW9C+fEreKIY0KkLRIeLc8/VL69YDDnSNRUJj3ubKNstQNeHoMqlk+75xfyVvVk4=
+    secure: "M4WwBAxUZA3Ytfzd665MyiGCYdT4HgPCXSarvTlKhQ38rRXsCxn6a9jx6qvC5NyKeHoPm89l+ZmWmH8KgrwtE1kprhyMN3cqZYTx
+DJ6V7l4zdhwrjdcCw1Nf05nWLqwZ7/FRvqtiMm1Fh9b3yi84Gt69iUwZ6BpngVUTGBsV0u0klhTiqWwP7Z6mObk/NB61Mn3+2meGRNM6PLgQibt
+xE56a45KivciATXZi1pWqlKCmep+CYoI5gVf096RXLTQ1Wqn3czOlsLvzljrgneU47n6FLFwlHcHStKshtMcSbsd9a4o/dWK39Y3jSfR+xEyQlK
+I8Qv352G/YwjCct0YuL3nlD8X0NU9ZHdjuENCrllrxj6YUx5+TSwlgfOlzKzad5SgaSylfulIOpmm59dP7got+xrozCS3j5gCnyJAOyi3FWFtJS
+sxfc2W2u+GCFlMM13o5u2WIV4oXB6aZt7rGFqntzU8xhrFCACg99Wwp4/3TirBJQfDQ9ptJFCQbJev5t26HBw/DySbwKycwm3XxRynYpTFwcJh7
+xkFULsn/2jB4QZr9YwSRtyEGY3Fio9kyHm5HL7C0QVoX49cH05+B5CghiZb4TEzupaua7ORjPuT5AsjcWomWLTxGO6ihj+Wkux4oTb4KsoJszM6
+KgO0cEVhMp91EguSS5dYREGm+AWM="
+
 addons:
   firefox: latest
   apt:
     sources:
-    - ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-test
     packages:
-    - g++-4.8
+      - g++-4.8
