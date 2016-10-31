@@ -1,32 +1,31 @@
 sudo: false
 language: node_js
-node_js:
-  - 4
-  - 6
-  - stable
+
+matrix:
+  include:
+  - node_js: 4
+    env: CXX=g++-4.8
+  - node_js: 6
+    env: CXX=g++-4.8
+  - node_js: stable
+    env:
+    - SAUCE=true
+    - CXX=g++-4.8
+
 before_install:
   - npm install -g npm
+
 script:
   - npm run lint
   - npm test
   - npm run coverage
+
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+
 after_success:
   - npm run coverage-publish
-env:
-  matrix:
-    - CXX=g++-4.8
-  global:
-    - SAUCE_USERNAME=js-mh-async
-    secure: "M4WwBAxUZA3Ytfzd665MyiGCYdT4HgPCXSarvTlKhQ38rRXsCxn6a9jx6qvC5NyKeHoPm89l+ZmWmH8KgrwtE1kprhyMN3cqZYTx
-DJ6V7l4zdhwrjdcCw1Nf05nWLqwZ7/FRvqtiMm1Fh9b3yi84Gt69iUwZ6BpngVUTGBsV0u0klhTiqWwP7Z6mObk/NB61Mn3+2meGRNM6PLgQibt
-xE56a45KivciATXZi1pWqlKCmep+CYoI5gVf096RXLTQ1Wqn3czOlsLvzljrgneU47n6FLFwlHcHStKshtMcSbsd9a4o/dWK39Y3jSfR+xEyQlK
-I8Qv352G/YwjCct0YuL3nlD8X0NU9ZHdjuENCrllrxj6YUx5+TSwlgfOlzKzad5SgaSylfulIOpmm59dP7got+xrozCS3j5gCnyJAOyi3FWFtJS
-sxfc2W2u+GCFlMM13o5u2WIV4oXB6aZt7rGFqntzU8xhrFCACg99Wwp4/3TirBJQfDQ9ptJFCQbJev5t26HBw/DySbwKycwm3XxRynYpTFwcJh7
-xkFULsn/2jB4QZr9YwSRtyEGY3Fio9kyHm5HL7C0QVoX49cH05+B5CghiZb4TEzupaua7ORjPuT5AsjcWomWLTxGO6ihj+Wkux4oTb4KsoJszM6
-KgO0cEVhMp91EguSS5dYREGm+AWM="
 
 addons:
   firefox: latest
