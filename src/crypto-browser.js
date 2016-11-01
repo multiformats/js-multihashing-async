@@ -1,6 +1,7 @@
 'use strict'
 
 const SHA3 = require('browserify-sha3')
+const nodeify = require('nodeify')
 
 const webCrypto = getWebCrypto()
 
@@ -34,9 +35,10 @@ function webCryptoHash (type) {
       return
     }
 
-    return res.then((arrbuf) => {
-      callback(null, new Buffer(new Uint8Array(arrbuf)))
-    }).catch((err) => callback(err))
+    nodeify(
+      res.then((raw) => new Buffer(new Uint8Array(raw))),
+      callback
+    )
   }
 }
 
