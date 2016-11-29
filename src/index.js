@@ -73,7 +73,16 @@ Multihashing.functions = {
   0x11: crypto.sha1,
   0x12: crypto.sha2256,
   0x13: crypto.sha2512,
-  0x14: crypto.sha3
+  0x14: crypto.sha3512,
+  0x15: crypto.sha3384,
+  0x16: crypto.sha3256,
+  0x17: crypto.sha3224,
+  0x18: crypto.shake128,
+  0x19: crypto.shake256,
+  0x1A: crypto.keccak224,
+  0x1B: crypto.keccak256,
+  0x1C: crypto.keccak384,
+  0x1D: crypto.keccak512
   // 0x40: blake2b, // not implemented yet
   // 0x41: blake2s, // not implemented yet
 }

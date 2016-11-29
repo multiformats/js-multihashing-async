@@ -4,7 +4,7 @@
   "description": "multiple hash functions",
   "main": "src/index.js",
   "browser": {
-    "./src/crypto.js": "./src/crypto-browser.js"
+    "./src/crypto-sha1-2.js": "./src/crypto-sha1-2-browser.js"
   },
   "scripts": {
     "test": "aegir-test",
@@ -36,13 +36,13 @@
     "url": "https://github.com/multiformats/js-multihashing-async/issues"
   },
   "dependencies": {
-    "browserify-sha3": "0.0.2",
-    "multihashes": "^0.2.2",
-    "nodeify": "^1.0.0",
-    "sha3": "^1.2.0"
+    "async": "^2.1.4",
+    "js-sha3": "^0.5.5",
+    "multihashes": "^0.3.0",
+    "nodeify": "^1.0.0"
   },
   "devDependencies": {
-    "aegir": "^9.0.1",
+    "aegir": "^9.1.2",
     "benchmark": "^2.1.2",
     "chai": "^3.5.0",
     "pre-commit": "^1.1.3"
