@@ -4,9 +4,24 @@ const Benchmark = require('benchmark')
 const multihashing = require('../src')
 
 const suite = new Benchmark.Suite('multihashing-async')
-const list = []
 
-const algs = ['sha1', 'sha2-256', 'sha2-512', 'sha3']
+let list = []
+
+const algs = [
+  'sha1',
+  'sha2-256',
+  'sha2-512',
+  'sha3-512',
+  'sha3-384',
+  'sha3-256',
+  'sha3-224',
+  'shake-128',
+  'shake-256',
+  'keccak-224',
+  'keccak-256',
+  'keccak-384',
+  'keccak-512'
+]
 
 algs.forEach((alg) => {
   suite.add(alg, function (d) {
@@ -25,6 +40,7 @@ algs.forEach((alg) => {
 suite
 .on('cycle', (event) => {
   console.log(String(event.target))
+  list = []
 })
 // run async
 .run({

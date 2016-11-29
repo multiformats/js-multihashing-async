@@ -70,10 +70,32 @@ Multihashing.createHash = function (func) {
 }
 
 Multihashing.functions = {
+  // sha1
   0x11: crypto.sha1,
+  // sha2-256
   0x12: crypto.sha2256,
+  // sha2-512
   0x13: crypto.sha2512,
-  0x14: crypto.sha3
+  // sha3-512
+  0x14: crypto.sha3512,
+  // sha3-384
+  0x15: crypto.sha3384,
+  // sha3-256
+  0x16: crypto.sha3256,
+  // sha3-224
+  0x17: crypto.sha3224,
+  // shake-128
+  0x18: crypto.shake128,
+  // shake-256
+  0x19: crypto.shake256,
+  // keccak-224
+  0x1A: crypto.keccak224,
+  // keccak-256
+  0x1B: crypto.keccak256,
+  // keccak-384
+  0x1C: crypto.keccak384,
+  // keccak-512
+  0x1D: crypto.keccak512
   // 0x40: blake2b, // not implemented yet
   // 0x41: blake2s, // not implemented yet
 }
