@@ -5,6 +5,16 @@ const crypto = require('./crypto')
 
 module.exports = Multihashing
 
+/**
+ * Hash the given `buf` using the algorithm specified
+ * by `func`.
+ *
+ * @param {Buffer} buf - The value to hash.
+ * @param {number|string} func - The algorithm to use.
+ * @param {number} [length] - Optionally trim the result to this length.
+ * @param {function(Error, Buffer)} callback
+ * @returns {undefined}
+ */
 function Multihashing (buf, func, length, callback) {
   if (typeof length === 'function') {
     callback = length
@@ -24,11 +34,25 @@ function Multihashing (buf, func, length, callback) {
   })
 }
 
+/**
+ * The `buffer` module for easy use in the browser.
+ *
+ * @type {Buffer}
+ */
 Multihashing.Buffer = Buffer // for browser things
 
-// expose multihash itself, to avoid silly double requires.
+/**
+ * Expose multihash itself, to avoid silly double requires.
+ */
 Multihashing.multihash = multihash
 
+/**
+ * @param {Buffer} buf - The value to hash.
+ * @param {number|string} func - The algorithm to use.
+ * @param {number} [length] - Optionally trim the result to this length.
+ * @param {function(Error, Buffer)} callback
+ * @returns {undefined}
+ */
 Multihashing.digest = function (buf, func, length, callback) {
   if (typeof length === 'function') {
     callback = length
@@ -60,6 +84,11 @@ Multihashing.digest = function (buf, func, length, callback) {
   hash(buf, cb)
 }
 
+/**
+ * @param {string|number} func
+ *
+ * @returns {function} - The to `func` corresponding hash function.
+ */
 Multihashing.createHash = function (func) {
   func = multihash.coerceCode(func)
   if (!Multihashing.functions[func]) {
@@ -69,6 +98,10 @@ Multihashing.createHash = function (func) {
   return Multihashing.functions[func]
 }
 
+/**
+ * Mapping of multihash codes to their hashing functions.
+ * @type {Object}
+ */
 Multihashing.functions = {
   // sha1
   0x11: crypto.sha1,
