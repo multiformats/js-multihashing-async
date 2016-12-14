@@ -56,13 +56,19 @@ font-weight: bold;}.hljs-deletion{background: #fdd;}.hljs-addition{background: #
 <span class="hljs-keyword">const</span> multihashing = <span class="hljs-built_in">require</span>(<span class="hljs-string">'multihashing-async'</span>)
 <span class="hljs-keyword">const</span> buf = <span class="hljs-keyword">new</span> Buffer(<span class="hljs-string">'beep boop'</span>)
 
-multihashing(buf, <span class="hljs-string">'sha1'</span>, (err, mh) =&gt; <span class="hljs-built_in">console</span>.log(mh))
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">print</span> (<span class="hljs-params">err, mh</span>) </span>{
+  <span class="hljs-keyword">if</span> (err) {
+    <span class="hljs-keyword">throw</span> err
+  }
+  <span class="hljs-built_in">console</span>.log(mh)
+}
+multihashing(buf, <span class="hljs-string">'sha1'</span>, print)
 <span class="hljs-comment">// =&gt; &lt;Buffer 11 14 7c 83 57 57 7f 51 d4 f0 a8 d3 93 aa 1a aa fb 28 86 3d 94 21&gt;</span>
 
-multihashing(buf, <span class="hljs-string">'sha2-256'</span>, (err, mh) =&gt; onsole.log(mh))
+multihashing(buf, <span class="hljs-string">'sha2-256'</span>, print)
 <span class="hljs-comment">// =&gt; &lt;Buffer 12 20 90 ea 68 8e 27 5d 58 05 67 32 50 32 49 2b 59 7b c7 72 21 c6 24 93 e7 63 30 b8 5d dd a1 91 ef 7c&gt;</span>
 
-multihashing(buf, <span class="hljs-string">'sha2-512'</span>, (err, mh) =&gt; <span class="hljs-built_in">console</span>.log(mh))
+multihashing(buf, <span class="hljs-string">'sha2-512'</span>, print)
 <span class="hljs-comment">// =&gt; &lt;Buffer 13 40 14 f3 01 f3 1b e2 43 f3 4c 56 68 93 78 83 77 1f a3 81 00 2f 1a aa 5f 31 b3 f7 8e 50 0b 66 ff 2f 4f 8e a5 e3 c9 f5 a6 1b d0 73 e2 45 2c 48 04 84 b0 ...&gt;</span></pre>
 <p>There are more available, so take a look at the docs below for a full list. This documentation aims to be comprehensive, so if you feel anything is missing please create a GitHub issue for it.</p>
 <h2>Download</h2>
