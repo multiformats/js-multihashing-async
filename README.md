@@ -1,15 +1,17 @@
 # js-multihashing-async
 
 [![](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square)](http://ipn.io)
-[![](https://img.shields.io/badge/project-multiformats-blue.svg?style=flat-square)](http://github.com/multiformats/multiformats)
-[![](https://img.shields.io/badge/project-IPFS-blue.svg?style=flat-square)](http://ipfs.io/)
-[![](https://img.shields.io/badge/freenode-%23ipfs-blue.svg?style=flat-square)](http://webchat.freenode.net/?channels=%23ipfs)
+[![](https://img.shields.io/badge/project-multiformats-blue.svg?style=flat-square)](https://github.com/multiformats/multiformats)
+[![](https://img.shields.io/badge/freenode-%23ipfs-blue.svg?style=flat-square)](https://webchat.freenode.net/?channels=%23ipfs)
 [![Coverage Status](https://coveralls.io/repos/github/multiformats/js-multihashing-async/badge.svg?branch=master)](https://coveralls.io/github/multiformats/js-multihashing-async?branch=master)
-[![Travis CI](https://travis-ci.org/multiformats/js-multihashing-async.svg?branch=master)](https://travis-ci.org/multiformats/js-multihashing-async)
+[![Travis CI](https://img.shields.io/travis/multiformats/js-multihashing-async.svg?style=flat-square&branch=master)](https://travis-ci.org/multiformats/js-multihashing-async)
 [![Circle CI](https://circleci.com/gh/multiformats/js-multihashing-async.svg?style=svg)](https://circleci.com/gh/multiformats/js-multihashing-async)
 [![Dependency Status](https://david-dm.org/multiformats/js-multihashing-async.svg?style=flat-square)](https://david-dm.org/multiformats/js-multihashing-async) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 ![](https://img.shields.io/badge/npm-%3E%3D3.0.0-orange.svg?style=flat-square)
 ![](https://img.shields.io/badge/Node.js-%3E%3D4.0.0-orange.svg?style=flat-square)
+[![](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+
+
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/ipfs-js-mh-async.svg)](https://saucelabs.com/u/ipfs-js-mh-async)
 
@@ -140,8 +142,8 @@ Contributions welcome. Please check out [the issues](https://github.com/multifor
 
 Check out our [contributing document](https://github.com/multiformats/multiformats/blob/master/contributing.md) for more information on how we work, and about contributing in general. Please be aware that all interactions related to multiformats are subject to the IPFS [Code of Conduct](https://github.com/ipfs/community/blob/master/code-of-conduct.md).
 
-Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
+Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
 ## License
 
-[MIT](LICENSE) © Protocol Labs Inc.
+[MIT](LICENSE) © 2016 Protocol Labs Inc.
