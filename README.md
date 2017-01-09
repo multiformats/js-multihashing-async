@@ -122,15 +122,7 @@ h(buf, (err, digest) => {
 
 ## API
 
-### `multihashing(buf, func, [length,] callback)`
-
-### `digest(buf, func, [length,] callback)`
-
-### `createHash(func)`
-
-### `functions`
-
-An object mapping hexcodes to their hash functions.
+https://multiformats.github.io/js-multihashing-async/
 
 ## Maintainers
 
