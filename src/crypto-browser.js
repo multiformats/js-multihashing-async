@@ -15,6 +15,16 @@ function getWebCrypto () {
       return window.msCrypto.subtle
     }
   }
+
+  if (typeof self !== 'undefined') {
+    if (self.crypto) {
+      return self.crypto.subtle || self.crypto.webkitSubtle
+    }
+
+    if (self.msCrypto) {
+      return self.msCrypto.subtle
+    }
+  }
 }
 
 function webCryptoHash (type) {
