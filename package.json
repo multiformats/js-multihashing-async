@@ -1,6 +1,6 @@
 {
   "name": "multihashing-async",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "multiple hash functions",
   "main": "src/index.js",
   "browser": {
