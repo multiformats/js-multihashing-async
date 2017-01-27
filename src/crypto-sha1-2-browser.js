@@ -1,3 +1,5 @@
+/* global self */
+
 'use strict'
 
 const nodeify = require('nodeify')
@@ -5,14 +7,13 @@ const nodeify = require('nodeify')
 const webCrypto = getWebCrypto()
 
 function getWebCrypto () {
-  if (typeof window !== 'undefined') {
-    if (window.crypto) {
-      return window.crypto.subtle || window.crypto.webkitSubtle
-    }
+  const globalCtx = typeof window !== 'undefined' ? window : self
+  if (globalCtx.crypto) {
+    return globalCtx.crypto.subtle || globalCtx.crypto.webkitSubtle
+  }
 
-    if (window.msCrypto) {
-      return window.msCrypto.subtle
-    }
+  if (globalCtx.msCrypto) {
+    return globalCtx.msCrypto.subtle
   }
 }
 
