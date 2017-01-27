@@ -17,9 +17,10 @@ const fromString = (doWork, other) => (_input) => {
 
 const to32BitBuf = (doWork, other) => (input) => {
   let number = doWork(input, other)
-  const bytes = []
+  const bytes = new Array(4)
+
   for (let i = 0; i < 4; i++) {
-    bytes.push(number & 0xff)
+    bytes[i] = number & 0xff
     number = number >>> 8
   }
   return new Buffer(bytes)
