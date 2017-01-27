@@ -1,12 +1,29 @@
 'use strict'
 
 const sha3 = require('js-sha3')
+const murmur3 = require('murmurhash3js').x86.hash32
 
 const toCallback = require('./to-callback')
 const sha = require('./crypto-sha1-2')
 
 const toBuf = (doWork, other) => (input) => {
   return new Buffer(doWork(input, other), 'hex')
+}
+
+const fromString = (doWork, other) => (_input) => {
+  const input = Buffer.isBuffer(_input) ? _input.toString() : _input
+  return doWork(input, other)
+}
+
+const to32BitBuf = (doWork, other) => (input) => {
+  let number = doWork(input, other)
+  const bytes = new Array(4)
+
+  for (let i = 0; i < 4; i++) {
+    bytes[i] = number & 0xff
+    number = number >>> 8
+  }
+  return new Buffer(bytes)
 }
 
 module.exports = {
@@ -22,5 +39,6 @@ module.exports = {
   keccak224: toCallback(toBuf(sha3.keccak_224)),
   keccak256: toCallback(toBuf(sha3.keccak_256)),
   keccak384: toCallback(toBuf(sha3.keccak_384)),
-  keccak512: toCallback(toBuf(sha3.keccak_512))
+  keccak512: toCallback(toBuf(sha3.keccak_512)),
+  murmur3: toCallback(to32BitBuf(fromString(murmur3)))
 }

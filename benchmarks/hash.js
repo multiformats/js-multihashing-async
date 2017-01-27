@@ -20,7 +20,8 @@ const algs = [
   'keccak-224',
   'keccak-256',
   'keccak-384',
-  'keccak-512'
+  'keccak-512',
+  'murmur3'
 ]
 
 algs.forEach((alg) => {
