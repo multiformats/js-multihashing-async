@@ -6,7 +6,7 @@ const nodeify = require('nodeify')
 const webCrypto = getWebCrypto()
 
 function getWebCrypto () {
- if (self.crypto) {
+  if (self.crypto) {
     return self.crypto.subtle || self.crypto.webkitSubtle
   }
 
