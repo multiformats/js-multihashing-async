@@ -1,4 +1,3 @@
-/* global self */
 'use strict'
 
 const nodeify = require('nodeify')
