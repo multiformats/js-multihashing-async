@@ -56,4 +56,16 @@ module.exports = [[
   'beep boop',
   'murmur3',
   '2204243ddb9e'
+], [
+  'beep boop',
+  'blake2b-512',
+  'c0e402400eac6255ba822373a0948122b8d295008419a8ab27842ee0d70eca39855621463c03ec75ac3610aacfdff89fa989d8d61fc00450148f289eb5b12ad1a954f659'
+], [
+  'beep boop',
+  'blake2b-160',
+  '94e40214fe303247293e54e0a7ea48f9408ca68b36b08442'
+], [
+  'beep boop',
+  'blake2s-256',
+  'e0e402204542eaca484e4311def8af74b546edd7fceb49eeb3cdcfd8a4a72ed0dc81d4c0'
 ]]

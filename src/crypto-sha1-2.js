@@ -1,7 +1,7 @@
 'use strict'
 
 const crypto = require('crypto')
-const toCallback = require('./to-callback')
+const toCallback = require('./utils').toCallback
 
 const sha1 = toCallback(
   (buf) => crypto.createHash('sha1').update(buf).digest()
