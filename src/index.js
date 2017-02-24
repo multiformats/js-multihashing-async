@@ -131,6 +131,7 @@ Multihashing.functions = {
   0x1D: crypto.keccak512,
   // murmur3
   0x22: crypto.murmur3
-  // 0x40: blake2b, // not implemented yet
-  // 0x41: blake2s, // not implemented yet
 }
+
+// add blake functions
+crypto.addBlake(Multihashing.functions)

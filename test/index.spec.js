@@ -63,20 +63,6 @@ describe('multihashing', () => {
   })
 
   describe('invalid arguments', () => {
-    it('returns an error on non implemented func', (done) => {
-      multihashing(new Buffer('beep boop'), 'blake2b', (err) => {
-        expect(err.message).to.match(/not yet supported/)
-        done()
-      })
-    })
-
-    it('digest only, with length, returns error on non implmented func', (done) => {
-      multihashing.digest(new Buffer('beep boop'), 'blake2b', 10, (err) => {
-        expect(err.message).to.match(/not yet supported/)
-        done()
-      })
-    })
-
     it('throws on missing callback', () => {
       expect(
         () => multihashing(new Buffer('beep'), 'sha3')
