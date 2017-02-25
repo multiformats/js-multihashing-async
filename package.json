@@ -42,7 +42,7 @@
     "js-sha3": "^0.5.7",
     "multihashes": "~0.4.3",
     "murmurhash3js": "^3.0.1",
-    "nodeify": "^1.0.0"
+    "nodeify": "git+ssh://git@github.com/then/nodeify.git#444f8a68890fd08b9b30113784833283c61d277e"
   },
   "devDependencies": {
     "aegir": "^10.0.0",
