@@ -1,3 +1,13 @@
+<a name="0.4.4"></a>
+## [0.4.4](https://github.com/multiformats/js-multihashing-async/compare/v0.4.3...v0.4.4) (2017-03-16)
+
+
+### Bug Fixes
+
+* **deps:** update to fixed version of nodeify (1.0.1) ([154001d](https://github.com/multiformats/js-multihashing-async/commit/154001d))
+
+
+
 <a name="0.4.3"></a>
 ## [0.4.3](https://github.com/multiformats/js-multihashing-async/compare/v0.4.2...v0.4.3) (2017-02-24)
 
