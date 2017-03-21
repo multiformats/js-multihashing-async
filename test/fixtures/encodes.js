@@ -55,7 +55,7 @@ module.exports = [[
 ], [
   'beep boop',
   'murmur3',
-  '2204243ddb9e'
+  '2210acfe9c5bbf88f075c0c4df0464430ead'
 ], [
   'beep boop',
   'blake2b-512',

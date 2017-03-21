@@ -28,14 +28,3 @@ exports.fromString = (doWork, other) => (_input) => {
   const input = Buffer.isBuffer(_input) ? _input.toString() : _input
   return doWork(input, other)
 }
-
-exports.to32BitBuf = (doWork, other) => (input) => {
-  let number = doWork(input, other)
-  const bytes = new Array(4)
-
-  for (let i = 0; i < 4; i++) {
-    bytes[i] = number & 0xff
-    number = number >>> 8
-  }
-  return new Buffer(bytes)
-}
