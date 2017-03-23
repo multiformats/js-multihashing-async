@@ -40,7 +40,7 @@
     "async": "^2.1.5",
     "blakejs": "^1.0.1",
     "js-sha3": "^0.5.7",
-    "multihashes": "~0.4.4",
+    "multihashes": "~0.4.5",
     "murmurhash3js": "^3.0.1",
     "nodeify": "^1.0.1"
   },
