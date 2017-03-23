@@ -1,3 +1,8 @@
+<a name="0.4.5"></a>
+## [0.4.5](https://github.com/multiformats/js-multihashing-async/compare/v0.4.4...v0.4.5) (2017-03-23)
+
+
+
 <a name="0.4.4"></a>
 ## [0.4.4](https://github.com/multiformats/js-multihashing-async/compare/v0.4.3...v0.4.4) (2017-03-16)
 
