@@ -21,10 +21,23 @@ exports.toCallback = (doWork) => {
 }
 
 exports.toBuf = (doWork, other) => (input) => {
-  return new Buffer(doWork(input, other), 'hex')
+  let result = doWork(input, other)
+  return new Buffer(result, 'hex')
 }
 
 exports.fromString = (doWork, other) => (_input) => {
   const input = Buffer.isBuffer(_input) ? _input.toString() : _input
   return doWork(input, other)
+}
+
+exports.fromNumberTo32BitBuf = (doWork, other) => (input) => {
+  let number = doWork(input, other)
+  const bytes = new Array(4)
+
+  for (let i = 0; i < 4; i++) {
+    bytes[i] = number & 0xff
+    number = number >> 8
+  }
+
+  return Buffer.from(bytes)
 }

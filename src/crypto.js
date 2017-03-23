@@ -1,7 +1,7 @@
 'use strict'
 
 const sha3 = require('js-sha3')
-const murmur3 = require('murmurhash3js').x64.hash128
+const murmur3 = require('murmurhash3js')
 
 const utils = require('./utils')
 const sha = require('./crypto-sha1-2')
@@ -9,6 +9,7 @@ const sha = require('./crypto-sha1-2')
 const toCallback = utils.toCallback
 const toBuf = utils.toBuf
 const fromString = utils.fromString
+const fromNumberTo32BitBuf = utils.fromNumberTo32BitBuf
 
 module.exports = {
   sha1: sha.sha1,
@@ -24,6 +25,7 @@ module.exports = {
   keccak256: toCallback(toBuf(sha3.keccak_256)),
   keccak384: toCallback(toBuf(sha3.keccak_384)),
   keccak512: toCallback(toBuf(sha3.keccak_512)),
-  murmur3128: toCallback(toBuf(fromString(murmur3))),
+  murmur3128: toCallback(toBuf(fromString(murmur3.x64.hash128))),
+  murmur332: toCallback(fromNumberTo32BitBuf(fromString(murmur3.x86.hash32))),
   addBlake: require('./blake')
 }

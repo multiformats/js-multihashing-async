@@ -21,6 +21,7 @@ const algs = [
   'keccak-256',
   'keccak-384',
   'keccak-512',
+  'murmur3-32',
   'murmur3-128'
 ]
 
