@@ -24,6 +24,6 @@ module.exports = {
   keccak256: toCallback(toBuf(sha3.keccak_256)),
   keccak384: toCallback(toBuf(sha3.keccak_384)),
   keccak512: toCallback(toBuf(sha3.keccak_512)),
-  murmur3: toCallback(toBuf(fromString(murmur3))),
+  murmur3128: toCallback(toBuf(fromString(murmur3))),
   addBlake: require('./blake')
 }
