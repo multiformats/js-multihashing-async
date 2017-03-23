@@ -54,8 +54,12 @@ module.exports = [[
   '1d40e161c54798f78eba3404ac5e7e12d27555b7b810e7fd0db3f25ffa0c785c438331b0fbb6156215f69edf403c642e5280f4521da9bd767296ec81f05100852e78'
 ], [
   'beep boop',
-  'murmur3',
-  '2204243ddb9e'
+  'murmur3-128',
+  '2210acfe9c5bbf88f075c0c4df0464430ead'
+], [
+  'beep boop',
+  'murmur3-32',
+  '2304243ddb9e'
 ], [
   'beep boop',
   'blake2b-512',

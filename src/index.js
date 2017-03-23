@@ -129,8 +129,10 @@ Multihashing.functions = {
   0x1C: crypto.keccak384,
   // keccak-512
   0x1D: crypto.keccak512,
-  // murmur3
-  0x22: crypto.murmur3
+  // murmur3-128
+  0x22: crypto.murmur3128,
+  // murmur3-32
+  0x23: crypto.murmur332
 }
 
 // add blake functions
