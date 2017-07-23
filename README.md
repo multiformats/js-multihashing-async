@@ -6,14 +6,11 @@
 [![Coverage Status](https://coveralls.io/repos/github/multiformats/js-multihashing-async/badge.svg?branch=master)](https://coveralls.io/github/multiformats/js-multihashing-async?branch=master)
 [![Travis CI](https://img.shields.io/travis/multiformats/js-multihashing-async.svg?style=flat-square&branch=master)](https://travis-ci.org/multiformats/js-multihashing-async)
 [![Circle CI](https://circleci.com/gh/multiformats/js-multihashing-async.svg?style=svg)](https://circleci.com/gh/multiformats/js-multihashing-async)
-[![Dependency Status](https://david-dm.org/multiformats/js-multihashing-async.svg?style=flat-square)](https://david-dm.org/multiformats/js-multihashing-async) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
+[![Dependency Status](https://david-dm.org/multiformats/js-multihashing-async.svg?style=flat-square)](https://david-dm.org/multiformats/js-multihashing-async) 
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 ![](https://img.shields.io/badge/npm-%3E%3D3.0.0-orange.svg?style=flat-square)
 ![](https://img.shields.io/badge/Node.js-%3E%3D4.0.0-orange.svg?style=flat-square)
 [![](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-
-
-
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/ipfs-js-mh-async.svg)](https://saucelabs.com/u/ipfs-js-mh-async)
 
 > Use all the functions in [multihash](https://github.com/multiformats/multihash).
 
