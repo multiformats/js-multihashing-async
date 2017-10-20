@@ -22,7 +22,7 @@ const blake2s = {
 const makeB2Hash = (size, hf) => toCallback((buf) => {
   const ctx = hf.init(size, null)
   hf.update(ctx, buf)
-  return new Buffer(hf.digest(ctx))
+  return Buffer.from(hf.digest(ctx))
 })
 
 module.exports = (table) => {
