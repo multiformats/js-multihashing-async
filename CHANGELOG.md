@@ -1,3 +1,13 @@
+<a name="0.4.8"></a>
+## [0.4.8](https://github.com/multiformats/js-multihashing-async/compare/v0.4.7...v0.4.8) (2018-02-27)
+
+
+### Features
+
+* add double SHA2-256 hashing ([cb3779d](https://github.com/multiformats/js-multihashing-async/commit/cb3779d)), closes [#25](https://github.com/multiformats/js-multihashing-async/issues/25)
+
+
+
 <a name="0.4.7"></a>
 ## [0.4.7](https://github.com/multiformats/js-multihashing-async/compare/v0.4.6...v0.4.7) (2017-10-20)
 
