@@ -7,17 +7,17 @@
     "./src/crypto-sha1-2.js": "./src/crypto-sha1-2-browser.js"
   },
   "scripts": {
-    "test": "aegir-test",
-    "test:browser": "aegir-test browser",
-    "test:node": "aegir-test node",
-    "lint": "aegir-lint",
-    "docs": "aegir-docs",
-    "release": "aegir-release --docs",
-    "release-minor": "aegir-release minor --docs",
-    "release-major": "aegir-release major --docs",
-    "build": "aegir-build",
-    "coverage": "aegir-coverage",
-    "coverage-publish": "aegir-coverage publish",
+    "test": "aegir test",
+    "test:browser": "aegir test -t browser",
+    "test:node": "aegir test -t node",
+    "lint": "aegir lint",
+    "docs": "aegir docs",
+    "release": "aegir release --docs",
+    "release-minor": "aegir release minor --docs",
+    "release-major": "aegir release major --docs",
+    "build": "aegir build",
+    "coverage": "aegir coverage",
+    "coverage-publish": "aegir coverage publish",
     "bench": "node benchmarks/hash.js"
   },
   "pre-commit": [
@@ -37,22 +37,22 @@
     "url": "https://github.com/multiformats/js-multihashing-async/issues"
   },
   "dependencies": {
-    "async": "^2.5.0",
+    "async": "^2.6.0",
     "blakejs": "^1.1.0",
-    "js-sha3": "^0.6.1",
-    "multihashes": "~0.4.12",
+    "js-sha3": "^0.7.0",
+    "multihashes": "~0.4.13",
     "murmurhash3js": "^3.0.1",
     "nodeify": "^1.0.1"
   },
   "devDependencies": {
-    "aegir": "^11.0.2",
+    "aegir": "^13.0.5",
     "benchmark": "^2.1.4",
     "chai": "^4.1.2",
     "dirty-chai": "^2.0.1",
     "pre-commit": "^1.2.2"
   },
   "engines": {
-    "node": ">=4.0.0",
+    "node": ">=6.0.0",
     "npm": ">=3.0.0"
   },
   "homepage": "https://github.com/multiformats/js-multihashing-async",
