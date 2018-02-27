@@ -11,6 +11,15 @@ const toBuf = utils.toBuf
 const fromString = utils.fromString
 const fromNumberTo32BitBuf = utils.fromNumberTo32BitBuf
 
+const dblSha2256 = (buf, cb) => {
+  sha.sha2256(buf, (err, firstHash) => {
+    if (err) {
+      cb(err)
+    }
+    sha.sha2256((Buffer.from(firstHash)), cb)
+  })
+}
+
 module.exports = {
   sha1: sha.sha1,
   sha2256: sha.sha2256,
@@ -27,5 +36,6 @@ module.exports = {
   keccak512: toCallback(toBuf(sha3.keccak_512)),
   murmur3128: toCallback(toBuf(fromString(murmur3.x64.hash128))),
   murmur332: toCallback(fromNumberTo32BitBuf(fromString(murmur3.x86.hash32))),
-  addBlake: require('./blake')
+  addBlake: require('./blake'),
+  dblSha2256: dblSha2256
 }

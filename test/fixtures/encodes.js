@@ -72,4 +72,8 @@ module.exports = [[
   'beep boop',
   'blake2s-256',
   'e0e402204542eaca484e4311def8af74b546edd7fceb49eeb3cdcfd8a4a72ed0dc81d4c0'
+], [
+  'beep boop',
+  'dbl-sha2-256',
+  '56209cd9115d76945c2455b1450295b05f4edeba2e7286bc24c23e266b48faf578c0'
 ]]
