@@ -22,7 +22,7 @@ exports.toCallback = (doWork) => {
 
 exports.toBuf = (doWork, other) => (input) => {
   let result = doWork(input, other)
-  return new Buffer(result, 'hex')
+  return Buffer.from(result, 'hex')
 }
 
 exports.fromString = (doWork, other) => (_input) => {

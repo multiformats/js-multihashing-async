@@ -1,3 +1,5 @@
+/* global self */
+
 'use strict'
 
 const nodeify = require('nodeify')
@@ -24,7 +26,7 @@ function webCryptoHash (type) {
 
     if (typeof res.then !== 'function') { // IE11
       res.onerror = () => {
-        callback(`Error hashing data using ${type}`)
+        callback(new Error(`hashing data using ${type}`))
       }
       res.oncomplete = (e) => {
         callback(null, e.target.result)
@@ -33,7 +35,7 @@ function webCryptoHash (type) {
     }
 
     nodeify(
-      res.then((raw) => new Buffer(new Uint8Array(raw))),
+      res.then((raw) => Buffer.from(new Uint8Array(raw))),
       callback
     )
   }

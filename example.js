@@ -1,7 +1,7 @@
 'use strict'
 
 const multihashing = require('multihashing-async')
-const buf = new Buffer('beep boop')
+const buf = Buffer.from('beep boop')
 
 function print (err, mh) {
   if (err) {

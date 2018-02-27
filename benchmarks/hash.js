@@ -27,7 +27,7 @@ const algs = [
 
 algs.forEach((alg) => {
   suite.add(alg, function (d) {
-    const buf = new Buffer(10 * 1024)
+    const buf = Buffer.alloc(10 * 1024)
     buf.fill(Math.ceil(Math.random() * 100))
 
     multihashing(buf, alg, (err, res) => {
@@ -40,11 +40,11 @@ algs.forEach((alg) => {
   })
 })
 suite
-.on('cycle', (event) => {
-  console.log(String(event.target))
-  list = []
-})
-// run async
-.run({
-  async: true
-})
+  .on('cycle', (event) => {
+    console.log(String(event.target))
+    list = []
+  })
+  // run async
+  .run({
+    async: true
+  })
