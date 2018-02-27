@@ -132,7 +132,9 @@ Multihashing.functions = {
   // murmur3-128
   0x22: crypto.murmur3128,
   // murmur3-32
-  0x23: crypto.murmur332
+  0x23: crypto.murmur332,
+  // dbl-sha2-256
+  0x56: crypto.dblSha2256
 }
 
 // add blake functions
