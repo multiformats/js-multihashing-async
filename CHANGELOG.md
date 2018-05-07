@@ -1,3 +1,13 @@
+<a name="0.4.9"></a>
+## [0.4.9](https://github.com/multiformats/js-multihashing-async/compare/v0.4.8...v0.4.9) (2018-05-07)
+
+
+### Bug Fixes
+
+* shake digest size ([5444fba](https://github.com/multiformats/js-multihashing-async/commit/5444fba))
+
+
+
 <a name="0.4.8"></a>
 ## [0.4.8](https://github.com/multiformats/js-multihashing-async/compare/v0.4.7...v0.4.8) (2018-02-27)
 
