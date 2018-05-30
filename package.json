@@ -37,7 +37,7 @@
     "url": "https://github.com/multiformats/js-multihashing-async/issues"
   },
   "dependencies": {
-    "async": "^2.6.0",
+    "async": "^2.6.1",
     "blakejs": "^1.1.0",
     "js-sha3": "^0.7.0",
     "multihashes": "~0.4.13",
