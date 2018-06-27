@@ -2,6 +2,7 @@
   "name": "multihashing-async",
   "version": "0.5.1",
   "description": "multiple hash functions",
+  "leadMaintainer": "Hugo Dias <mail@hugodias.me>",
   "main": "src/index.js",
   "browser": {
     "./src/crypto-sha1-2.js": "./src/crypto-sha1-2-browser.js"

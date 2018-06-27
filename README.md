@@ -14,6 +14,10 @@
 
 > Use all the functions in [multihash](https://github.com/multiformats/multihash).
 
+## Lead Maintainer
+
+[Hugo Dias](https://github.com/hugomrdias)
+
 #### Wait, why, how is this different from Node `crypto`?
 
 This module just makes working with multihashes a bit nicer.
@@ -121,9 +125,6 @@ h(buf, (err, digest) => {
 
 https://multiformats.github.io/js-multihashing-async/
 
-## Maintainers
-
-Captain: [@diasdavid](https://github.com/diasdavid).
 
 ## Contribute
 
