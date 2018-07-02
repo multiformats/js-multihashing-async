@@ -2,6 +2,7 @@
   "name": "multihashing-async",
   "version": "0.5.1",
   "description": "multiple hash functions",
+  "leadMaintainer": "Hugo Dias <mail@hugodias.me>",
   "main": "src/index.js",
   "browser": {
     "./src/crypto-sha1-2.js": "./src/crypto-sha1-2-browser.js"
@@ -20,7 +21,7 @@
     "coverage-publish": "aegir coverage publish",
     "bench": "node benchmarks/hash.js"
   },
-  "pre-commit": [
+  "pre-push": [
     "lint",
     "test"
   ],
@@ -31,7 +32,6 @@
   "keywords": [
     "multihash"
   ],
-  "author": "Juan Benet <juan@benet.ai> (http://juan.benet.ai/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/multiformats/js-multihashing-async/issues"
@@ -48,8 +48,7 @@
     "aegir": "^13.1.0",
     "benchmark": "^2.1.4",
     "chai": "^4.1.2",
-    "dirty-chai": "^2.0.1",
-    "pre-commit": "^1.2.2"
+    "dirty-chai": "^2.0.1"
   },
   "engines": {
     "node": ">=6.0.0",
