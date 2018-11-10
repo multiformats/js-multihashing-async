@@ -22,7 +22,12 @@ const algs = [
   'keccak-384',
   'keccak-512',
   'murmur3-32',
-  'murmur3-128'
+  'murmur3-128',
+  'blake2b-512',
+  'blake2b-8',
+  'blake2s-256',
+  'blake2s-8',
+  'dbl-sha2-256',
 ]
 
 algs.forEach((alg) => {
