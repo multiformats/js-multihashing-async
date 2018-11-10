@@ -13,7 +13,7 @@ module.exports = Multihashing
  * @param {number|string} func - The algorithm to use.
  * @param {number} [length] - Optionally trim the result to this length.
  * @param {function(Error, Buffer)} callback
- * @returns {undefined}
+ * @returns {undefined|Promise}
  */
 function Multihashing (buf, func, length, callback) {
   if (typeof length === 'function') {
@@ -22,16 +22,13 @@ function Multihashing (buf, func, length, callback) {
   }
 
   if (!callback) {
-    throw new Error('Missing callback')
+    return Multihashing.digest(buf, func, length)
+      .then(digest => multihash.encode(digest, func, length))
   }
 
-  Multihashing.digest(buf, func, length, (err, digest) => {
-    if (err) {
-      return callback(err)
-    }
-
-    callback(null, multihash.encode(digest, func, length))
-  })
+  Multihashing.digest(buf, func, length)
+    .then((digest) => callback(null, multihash.encode(digest, func, length)))
+    .catch((err) => callback(err))
 }
 
 /**
@@ -51,7 +48,7 @@ Multihashing.multihash = multihash
  * @param {number|string} func - The algorithm to use.
  * @param {number} [length] - Optionally trim the result to this length.
  * @param {function(Error, Buffer)} callback
- * @returns {undefined}
+ * @returns {undefined|Promise}
  */
 Multihashing.digest = function (buf, func, length, callback) {
   if (typeof length === 'function') {
@@ -59,29 +56,20 @@ Multihashing.digest = function (buf, func, length, callback) {
     length = undefined
   }
 
-  if (!callback) {
-    throw new Error('Missing callback')
-  }
-
-  let cb = callback
-  if (length) {
-    cb = (err, digest) => {
-      if (err) {
-        return callback(err)
-      }
-
-      callback(null, digest.slice(0, length))
-    }
-  }
-
   let hash
   try {
     hash = Multihashing.createHash(func)
   } catch (err) {
-    return cb(err)
+    return callback(err)
   }
 
-  hash(buf, cb)
+  if (!callback) {
+    return hash(buf).then(digest => length ? digest.slice(0, length) : digest)
+  }
+
+  hash(buf)
+    .then((digest) => callback(null, length ? digest.slice(0, length) : digest))
+    .catch((err) => callback(err))
 }
 
 /**

@@ -27,11 +27,11 @@ const algs = [
   'blake2b-8',
   'blake2s-256',
   'blake2s-8',
-  'dbl-sha2-256',
+  'dbl-sha2-256'
 ]
 
 algs.forEach((alg) => {
-  suite.add(alg, function (d) {
+  suite.add(alg + ' (callback)', function (d) {
     const buf = Buffer.alloc(10 * 1024)
     buf.fill(Math.ceil(Math.random() * 100))
 
@@ -43,10 +43,20 @@ algs.forEach((alg) => {
   }, {
     defer: true
   })
+  suite.add(alg + ' (promise)', async function (d) {
+    const buf = Buffer.alloc(10 * 1024)
+    buf.fill(Math.ceil(Math.random() * 100))
+
+    const res = await multihashing(buf, alg)
+    list.push(res)
+    d.resolve()
+  }, {
+    defer: true
+  })
 })
 suite
   .on('cycle', (event) => {
-    console.log(String(event.target))
+    console.log(String(event.target)) // eslint-disable-line no-console
     list = []
   })
   // run async

@@ -1,43 +1,11 @@
 'use strict'
 
-const setImmediate = require('async/setImmediate')
+exports.toString = (buf) => Buffer.isBuffer(buf) ? buf.toString() : buf
 
-exports.toCallback = (doWork) => {
-  return function (input, callback) {
-    const done = (err, res) => setImmediate(() => {
-      callback(err, res)
-    })
-
-    let res
-    try {
-      res = doWork(input)
-    } catch (err) {
-      done(err)
-      return
-    }
-
-    done(null, res)
-  }
-}
-
-exports.toBuf = (doWork, other) => (input) => {
-  let result = doWork(input, other)
-  return Buffer.from(result, 'hex')
-}
-
-exports.fromString = (doWork, other) => (_input) => {
-  const input = Buffer.isBuffer(_input) ? _input.toString() : _input
-  return doWork(input, other)
-}
-
-exports.fromNumberTo32BitBuf = (doWork, other) => (input) => {
-  let number = doWork(input, other)
-  const bytes = new Array(4)
-
-  for (let i = 0; i < 4; i++) {
-    bytes[i] = number & 0xff
-    number = number >> 8
-  }
-
-  return Buffer.from(bytes)
-}
+exports.fromNumberTo32BitBuf = (number) =>
+  Buffer.from(new Uint8Array([
+    (number & 0x000000ff),
+    (number & 0x0000ff00) >> 8,
+    (number & 0x00ff0000) >> 16,
+    (number & 0xff000000) >> 24
+  ]))

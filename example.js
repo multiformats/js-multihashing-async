@@ -7,7 +7,7 @@ function print (err, mh) {
   if (err) {
     throw err
   }
-  console.log(mh)
+  console.log(mh) // eslint-disable-line no-console
 }
 multihashing(buf, 'sha1', print)
 // => <Buffer 11 14 7c 83 57 57 7f 51 d4 f0 a8 d3 93 aa 1a aa fb 28 86 3d 94 21>
