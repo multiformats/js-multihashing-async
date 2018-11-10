@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/multiformats/js-multihashing-async/badge.svg?branch=master)](https://coveralls.io/github/multiformats/js-multihashing-async?branch=master)
 [![Travis CI](https://img.shields.io/travis/multiformats/js-multihashing-async.svg?style=flat-square&branch=master)](https://travis-ci.org/multiformats/js-multihashing-async)
 [![Circle CI](https://circleci.com/gh/multiformats/js-multihashing-async.svg?style=svg)](https://circleci.com/gh/multiformats/js-multihashing-async)
-[![Dependency Status](https://david-dm.org/multiformats/js-multihashing-async.svg?style=flat-square)](https://david-dm.org/multiformats/js-multihashing-async) 
+[![Dependency Status](https://david-dm.org/multiformats/js-multihashing-async.svg?style=flat-square)](https://david-dm.org/multiformats/js-multihashing-async)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 ![](https://img.shields.io/badge/npm-%3E%3D3.0.0-orange.svg?style=flat-square)
 ![](https://img.shields.io/badge/Node.js-%3E%3D4.0.0-orange.svg?style=flat-square)
@@ -102,6 +102,20 @@ h(buf, (err, digest) => {
   // digest is a buffer of the sha1 of buf
 })
 ```
+
+Async/await is also supported
+
+```js
+const multihashing = require('multihashing-async')
+const buf = new Buffer('beep boop')
+
+const multihash = await multihashing(buf, 'sha1')
+const digest = await multihashing.digest(buf, 'sha1')
+
+const h = multihashing.createHash('sha1')
+const digest = await h(buf)
+```
+
 
 ## Examples
 
