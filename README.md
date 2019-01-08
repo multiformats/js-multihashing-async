@@ -85,7 +85,7 @@ You will need to use Node.js `Buffer` API compatible, if you are running inside 
 
 ```js
 const multihashing = require('multihashing-async')
-const buf = new Buffer('beep boop')
+const buf = Buffer.from('beep boop')
 
 multihashing(buf, 'sha1', (err, multihash) => {
   // by default calls back with a multihash.
@@ -109,7 +109,7 @@ h(buf, (err, digest) => {
 
 ```js
 > const multihashing = require('multihashing-async')
-> const buf = new Buffer('beep boop')
+> const buf = Buffer.from('beep boop')
 
 > multihashing(buf, 'sha1', (err, mh) => console.log(mh))
 // => <Buffer 11 14 7c 83 57 57 7f 51 d4 f0 a8 d3 93 aa 1a aa fb 28 86 3d 94 21>
