@@ -38,13 +38,13 @@
   },
   "dependencies": {
     "blakejs": "^1.1.0",
-    "js-sha3": "^0.7.0",
+    "js-sha3": "^0.8.0",
     "multihashes": "~0.4.13",
     "murmurhash3js": "^3.0.1",
     "nodeify": "^1.0.1"
   },
   "devDependencies": {
-    "aegir": "^13.1.0",
+    "aegir": "^18.0.3",
     "benchmark": "^2.1.4",
     "chai": "^4.1.2",
     "dirty-chai": "^2.0.1"
