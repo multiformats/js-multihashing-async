@@ -3,35 +3,17 @@
 const multihash = require('multihashes')
 const crypto = require('./crypto')
 
-module.exports = Multihashing
-
 /**
  * Hash the given `buf` using the algorithm specified
  * by `func`.
- *
  * @param {Buffer} buf - The value to hash.
  * @param {number|string} func - The algorithm to use.
  * @param {number} [length] - Optionally trim the result to this length.
- * @param {function(Error, Buffer)} callback
- * @returns {undefined}
+ * @returns {Promise<Buffer>}
  */
-function Multihashing (buf, func, length, callback) {
-  if (typeof length === 'function') {
-    callback = length
-    length = undefined
-  }
-
-  if (!callback) {
-    throw new Error('Missing callback')
-  }
-
-  Multihashing.digest(buf, func, length, (err, digest) => {
-    if (err) {
-      return callback(err)
-    }
-
-    callback(null, multihash.encode(digest, func, length))
-  })
+function Multihashing (buf, func, length) {
+  return Multihashing.digest(buf, func, length)
+    .then(digest => multihash.encode(digest, func, length))
 }
 
 /**
@@ -50,41 +32,25 @@ Multihashing.multihash = multihash
  * @param {Buffer} buf - The value to hash.
  * @param {number|string} func - The algorithm to use.
  * @param {number} [length] - Optionally trim the result to this length.
- * @param {function(Error, Buffer)} callback
- * @returns {undefined}
+ * @returns {Promise}
  */
-Multihashing.digest = function (buf, func, length, callback) {
-  if (typeof length === 'function') {
-    callback = length
-    length = undefined
-  }
-
-  if (!callback) {
-    throw new Error('Missing callback')
-  }
-
-  let cb = callback
-  if (length) {
-    cb = (err, digest) => {
-      if (err) {
-        return callback(err)
-      }
-
-      callback(null, digest.slice(0, length))
-    }
-  }
-
-  let hash
+Multihashing.digest = (buf, func, length) => {
   try {
-    hash = Multihashing.createHash(func)
+    return Multihashing.createHash(func)(buf)
+      .then(digest => {
+        if (length) {
+          return digest.slice(0, length)
+        }
+        return digest
+      })
   } catch (err) {
-    return cb(err)
+    return Promise.reject(err)
   }
-
-  hash(buf, cb)
 }
 
 /**
+ * Creates a function that hashs with the provided algorithm
+ *
  * @param {string|number} func
  *
  * @returns {function} - The to `func` corresponding hash function.
@@ -147,3 +113,4 @@ Multihashing.validate = (data, hash, callback) => {
     callback(err, Buffer.compare(hash, newHash) === 0)
   })
 }
+module.exports = Multihashing
