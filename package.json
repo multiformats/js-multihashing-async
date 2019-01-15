@@ -2,10 +2,23 @@
   "name": "multihashing-async",
   "version": "0.5.2",
   "description": "multiple hash functions",
-  "leadMaintainer": "Hugo Dias <mail@hugodias.me>",
+  "keywords": [
+    "multihash",
+    "hash",
+    "hashing",
+    "async"
+  ],
+  "homepage": "https://github.com/multiformats/js-multihashing-async",
+  "bugs": "https://github.com/multiformats/js-multihashing-async/issues",
+  "license": "MIT",
+  "leadMaintainer": "Hugo Dias <hugomrdias@gmail.com>",
+  "files": [
+    "src",
+    "dist"
+  ],
   "main": "src/index.js",
   "browser": {
-    "./src/crypto-sha1-2.js": "./src/crypto-sha1-2-browser.js"
+    "./src/sha.js": "./src/sha.browser.js"
   },
   "scripts": {
     "test": "aegir test",
@@ -21,27 +34,12 @@
     "coverage-publish": "aegir coverage publish",
     "bench": "node benchmarks/hash.js"
   },
-  "pre-push": [
-    "lint",
-    "test"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/multiformats/js-multihashing-async.git"
-  },
-  "keywords": [
-    "multihash"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/multiformats/js-multihashing-async/issues"
-  },
+  "repository": "github:multiformats/js-multihashing-async",
   "dependencies": {
     "blakejs": "^1.1.0",
     "js-sha3": "~0.8.0",
     "multihashes": "~0.4.13",
-    "murmurhash3js": "^3.0.1",
-    "nodeify": "^1.0.1"
+    "murmurhash3js-revisited": "^3.0.0"
   },
   "devDependencies": {
     "aegir": "^18.0.3",
@@ -53,7 +51,6 @@
     "node": ">=6.0.0",
     "npm": ">=3.0.0"
   },
-  "homepage": "https://github.com/multiformats/js-multihashing-async",
   "contributors": [
     "André Cruz <andremiguelcruz@msn.com>",
     "David Dias <daviddias.p@gmail.com>",

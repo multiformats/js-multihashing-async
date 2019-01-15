@@ -2,8 +2,6 @@
 
 const blake = require('blakejs')
 
-const toCallback = require('./utils').toCallback
-
 const minB = 0xb201
 const minS = 0xb241
 
@@ -19,11 +17,17 @@ const blake2s = {
   digest: blake.blake2sFinal
 }
 
-const makeB2Hash = (size, hf) => toCallback((buf) => {
-  const ctx = hf.init(size, null)
-  hf.update(ctx, buf)
-  return Buffer.from(hf.digest(ctx))
-})
+const makeB2Hash = (size, hf) => (data) => {
+  return new Promise((resolve, reject) => {
+    try {
+      const ctx = hf.init(size, null)
+      hf.update(ctx, data)
+      resolve(Buffer.from(hf.digest(ctx)))
+    } catch (error) {
+      reject(error)
+    }
+  })
+}
 
 module.exports = (table) => {
   for (let i = 0; i < 64; i++) {
