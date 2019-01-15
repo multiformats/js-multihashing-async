@@ -84,20 +84,14 @@ You will need to use Node.js `Buffer` API compatible, if you are running inside 
 const multihashing = require('multihashing-async')
 const buf = Buffer.from('beep boop')
 
-multihashing(buf, 'sha1', (err, multihash) => {
-  // by default calls back with a multihash.
-})
+const mh = await multihashing(buf, 'sha1')
 
 // Use `.digest(...)` if you want only the hash digest (drops the prefix indicating the hash type).
-multihashing.digest(buf, 'sha1', (err , digest) => {
-  // digest is the raw digest
-})
+const digest = await multihashing.digest(buf, 'sha1')
 
 // Use `.createHash(...)` for the raw hash functions
 const h = multihashing.createHash('sha1')
-h(buf, (err, digest) => {
-  // digest is a buffer of the sha1 of buf
-})
+const digest = await h(buf)
 ```
 
 ## Examples
@@ -105,16 +99,19 @@ h(buf, (err, digest) => {
 ### Multihash output
 
 ```js
-> const multihashing = require('multihashing-async')
-> const buf = Buffer.from('beep boop')
+const multihashing = require('multihashing-async')
+const buf = Buffer.from('beep boop')
 
-> multihashing(buf, 'sha1', (err, mh) => console.log(mh))
+const mh = await multihashing(buf, 'sha1')
+console.log(mh)
 // => <Buffer 11 14 7c 83 57 57 7f 51 d4 f0 a8 d3 93 aa 1a aa fb 28 86 3d 94 21>
 
-> multihashing(buf, 'sha2-256', (err, mh) => console.log(mh))
+const mh = await multihashing(buf, 'sha2-256')
+console.log(mh)
 // => <Buffer 12 20 90 ea 68 8e 27 5d 58 05 67 32 50 32 49 2b 59 7b c7 72 21 c6 24 93 e7 63 30 b8 5d dd a1 91 ef 7c>
 
-> multihashing(buf, 'sha2-512', (err, mh) => console.log(mh))
+const mh = await multihashing(buf, 'sha2-512')
+console.log(mh)
 // => <Buffer 13 40 14 f3 01 f3 1b e2 43 f3 4c 56 68 93 78 83 77 1f a3 81 00 2f 1a aa 5f 31 b3 f7 8e 50 0b 66 ff 2f 4f 8e a5 e3 c9 f5 a6 1b d0 73 e2 45 2c 48 04 84 b0 ...>
 ```
 
@@ -133,4 +130,4 @@ Small note: If editing the README, please conform to the [standard-readme](https
 
 ## License
 
-[MIT](LICENSE) © 2016 Protocol Labs Inc.
+[MIT](LICENSE) © Protocol Labs Inc.
