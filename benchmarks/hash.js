@@ -38,6 +38,7 @@ algs.forEach((alg) => {
         list.push(res)
         d.resolve()
       })
+      .catch(err => console.log(err))
   }, {
     defer: true
   })
