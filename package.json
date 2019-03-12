@@ -20,6 +20,10 @@
   "browser": {
     "./src/sha.js": "./src/sha.browser.js"
   },
+  "pre-push": [
+    "lint",
+    "test"
+  ],
   "scripts": {
     "test": "aegir test",
     "test:browser": "aegir test -t browser",
