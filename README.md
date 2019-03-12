@@ -89,8 +89,8 @@ const mh = await multihashing(buf, 'sha1')
 const digest = await multihashing.digest(buf, 'sha1')
 
 // Use `.createHash(...)` for the raw hash functions
-const h = multihashing.createHash('sha1')
-const digest = await h(buf)
+const hash = multihashing.createHash('sha1')
+const digest = await hash(buf)
 ```
 
 ## Examples
