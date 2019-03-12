@@ -1,5 +1,6 @@
 'use strict'
 
+const errcode = require('err-code')
 const multihash = require('multihashes')
 const crypto = require('./crypto')
 
@@ -47,9 +48,13 @@ Multihashing.digest = async (buf, alg, length) => {
  * @returns {function} - The hash function corresponding to `alg`
  */
 Multihashing.createHash = function (alg) {
+  if (!alg) {
+    throw errcode('hash algorithm must be specified', 'ERR_HASH_ALGORITHM_NOT_SPECIFIED')
+  }
+
   alg = multihash.coerceCode(alg)
   if (!Multihashing.functions[alg]) {
-    throw new Error('multihash function ' + alg + ' not yet supported')
+    throw errcode(`multihash function '${alg}' not yet supported`, 'ERR_HASH_ALGORITHM_NOT_SUPPORTED')
   }
 
   return Multihashing.functions[alg]
