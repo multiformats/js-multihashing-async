@@ -10,7 +10,7 @@ const multihashing = require('../src')
 const fixtures = require('./fixtures/encodes')
 
 describe('multihashing', () => {
-  fixtures.forEach((fixture) => {
+  for (const fixture of fixtures) {
     const raw = fixture[0]
     const func = fixture[1]
     const encoded = fixture[2]
@@ -19,7 +19,7 @@ describe('multihashing', () => {
       const digest = await multihashing(Buffer.from(raw), func)
       expect(digest.toString('hex')).to.eql(encoded)
     })
-  })
+  }
 
   it('cuts the length', async () => {
     const buf = Buffer.from('beep boop')

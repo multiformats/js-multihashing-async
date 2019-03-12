@@ -4,16 +4,15 @@ const multihash = require('multihashes')
 const crypto = require('./crypto')
 
 /**
- * Hash the given `buf` using the algorithm specified
- * by `func`.
+ * Hash the given `buf` using the algorithm specified by `alg`.
  * @param {Buffer} buf - The value to hash.
- * @param {number|string} func - The algorithm to use.
+ * @param {number|string} alg - The algorithm to use eg 'sha1'
  * @param {number} [length] - Optionally trim the result to this length.
  * @returns {Promise<Buffer>}
  */
-function Multihashing (buf, func, length) {
-  return Multihashing.digest(buf, func, length)
-    .then(digest => multihash.encode(digest, func, length))
+async function Multihashing (buf, alg, length) {
+  const digest = await Multihashing.digest(buf, alg, length)
+  return multihash.encode(digest, alg, length)
 }
 
 /**
@@ -30,38 +29,30 @@ Multihashing.multihash = multihash
 
 /**
  * @param {Buffer} buf - The value to hash.
- * @param {number|string} func - The algorithm to use.
+ * @param {number|string} alg - The algorithm to use eg 'sha1'
  * @param {number} [length] - Optionally trim the result to this length.
- * @returns {Promise}
+ * @returns {Promise<Buffer>}
  */
-Multihashing.digest = (buf, func, length) => {
-  try {
-    return Multihashing.createHash(func)(buf)
-      .then(digest => {
-        if (length) {
-          return digest.slice(0, length)
-        }
-        return digest
-      })
-  } catch (err) {
-    return Promise.reject(err)
-  }
+Multihashing.digest = async (buf, alg, length) => {
+  const hash = Multihashing.createHash(alg)
+  const digest = await hash(buf)
+  return length ? digest.slice(0, length) : digest
 }
 
 /**
- * Creates a function that hashs with the provided algorithm
+ * Creates a function that hashes with the given algorithm
  *
- * @param {string|number} func
+ * @param {string|number} alg - The algorithm to use eg 'sha1'
  *
- * @returns {function} - The to `func` corresponding hash function.
+ * @returns {function} - The hash function corresponding to `alg`
  */
-Multihashing.createHash = function (func) {
-  func = multihash.coerceCode(func)
-  if (!Multihashing.functions[func]) {
-    throw new Error('multihash function ' + func + ' not yet supported')
+Multihashing.createHash = function (alg) {
+  alg = multihash.coerceCode(alg)
+  if (!Multihashing.functions[alg]) {
+    throw new Error('multihash function ' + alg + ' not yet supported')
   }
 
-  return Multihashing.functions[func]
+  return Multihashing.functions[alg]
 }
 
 /**
