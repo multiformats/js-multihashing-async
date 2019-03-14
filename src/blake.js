@@ -17,16 +17,13 @@ const blake2s = {
   digest: blake.blake2sFinal
 }
 
-const makeB2Hash = (size, hf) => (data) => {
-  return new Promise((resolve, reject) => {
-    try {
-      const ctx = hf.init(size, null)
-      hf.update(ctx, data)
-      resolve(Buffer.from(hf.digest(ctx)))
-    } catch (error) {
-      reject(error)
-    }
-  })
+// Note that although this function doesn't do any asynchronous work, we mark
+// the function as async because it must return a Promise to match the API
+// for other functions that do perform asynchronous work (see sha.browser.js)
+const makeB2Hash = (size, hf) => async (data) => {
+  const ctx = hf.init(size, null)
+  hf.update(ctx, data)
+  return Buffer.from(hf.digest(ctx))
 }
 
 module.exports = (table) => {

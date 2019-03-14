@@ -8,18 +8,17 @@ module.exports = (algorithm) => {
     )
   }
 
-  return (data) => {
+  return async (data) => {
     switch (algorithm) {
       case 'sha1':
-        return crypto.subtle.digest({ name: 'SHA-1' }, data).then(Buffer.from)
+        return Buffer.from(await crypto.subtle.digest({ name: 'SHA-1' }, data))
       case 'sha2-256':
-        return crypto.subtle.digest({ name: 'SHA-256' }, data).then(Buffer.from)
+        return Buffer.from(await crypto.subtle.digest({ name: 'SHA-256' }, data))
       case 'sha2-512':
-        return crypto.subtle.digest({ name: 'SHA-512' }, data).then(Buffer.from)
+        return Buffer.from(await crypto.subtle.digest({ name: 'SHA-512' }, data))
       case 'dbl-sha2-256': {
-        return crypto.subtle.digest({ name: 'SHA-256' }, data)
-          .then(d => crypto.subtle.digest({ name: 'SHA-256' }, d))
-          .then(Buffer.from)
+        const d = await crypto.subtle.digest({ name: 'SHA-256' }, data)
+        return Buffer.from(await crypto.subtle.digest({ name: 'SHA-256' }, d))
       }
       default:
         throw new TypeError(`${algorithm} is not a supported algorithm`)
