@@ -5,42 +5,39 @@ const mur = require('murmurhash3js-revisited')
 const sha = require('./sha')
 const { fromNumberTo32BitBuf } = require('./utils')
 
-const hash = (algorithm) => (data) => {
-  return new Promise((resolve, reject) => {
-    try {
-      switch (algorithm) {
-        case 'sha3-224':
-          return resolve(Buffer.from(sha3.sha3_224.arrayBuffer(data)))
-        case 'sha3-256':
-          return resolve(Buffer.from(sha3.sha3_256.arrayBuffer(data)))
-        case 'sha3-384':
-          return resolve(Buffer.from(sha3.sha3_384.arrayBuffer(data)))
-        case 'sha3-512':
-          return resolve(Buffer.from(sha3.sha3_512.arrayBuffer(data)))
-        case 'shake-128':
-          return resolve(Buffer.from(sha3.shake128.create(128).update(data).arrayBuffer()))
-        case 'shake-256':
-          return resolve(Buffer.from(sha3.shake256.create(256).update(data).arrayBuffer()))
-        case 'keccak-224':
-          return resolve(Buffer.from(sha3.keccak224.arrayBuffer(data)))
-        case 'keccak-256':
-          return resolve(Buffer.from(sha3.keccak256.arrayBuffer(data)))
-        case 'keccak-384':
-          return resolve(Buffer.from(sha3.keccak384.arrayBuffer(data)))
-        case 'keccak-512':
-          return resolve(Buffer.from(sha3.keccak512.arrayBuffer(data)))
-        case 'murmur3-128':
-          return resolve(Buffer.from(mur.x64.hash128(data), 'hex'))
-        case 'murmur3-32':
-          return resolve(fromNumberTo32BitBuf(mur.x86.hash32(data)))
+// Note that although this function doesn't do any asynchronous work, we mark
+// the function as async because it must return a Promise to match the API
+// for other functions that do perform asynchronous work (see sha.browser.js)
+const hash = (algorithm) => async (data) => {
+  switch (algorithm) {
+    case 'sha3-224':
+      return Buffer.from(sha3.sha3_224.arrayBuffer(data))
+    case 'sha3-256':
+      return Buffer.from(sha3.sha3_256.arrayBuffer(data))
+    case 'sha3-384':
+      return Buffer.from(sha3.sha3_384.arrayBuffer(data))
+    case 'sha3-512':
+      return Buffer.from(sha3.sha3_512.arrayBuffer(data))
+    case 'shake-128':
+      return Buffer.from(sha3.shake128.create(128).update(data).arrayBuffer())
+    case 'shake-256':
+      return Buffer.from(sha3.shake256.create(256).update(data).arrayBuffer())
+    case 'keccak-224':
+      return Buffer.from(sha3.keccak224.arrayBuffer(data))
+    case 'keccak-256':
+      return Buffer.from(sha3.keccak256.arrayBuffer(data))
+    case 'keccak-384':
+      return Buffer.from(sha3.keccak384.arrayBuffer(data))
+    case 'keccak-512':
+      return Buffer.from(sha3.keccak512.arrayBuffer(data))
+    case 'murmur3-128':
+      return Buffer.from(mur.x64.hash128(data), 'hex')
+    case 'murmur3-32':
+      return fromNumberTo32BitBuf(mur.x86.hash32(data))
 
-        default:
-          throw new TypeError(`${algorithm} is not a supported algorithm`)
-      }
-    } catch (error) {
-      return reject(error)
-    }
-  })
+    default:
+      throw new TypeError(`${algorithm} is not a supported algorithm`)
+  }
 }
 
 module.exports = {

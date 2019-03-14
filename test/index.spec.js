@@ -5,12 +5,13 @@ const chai = require('chai')
 const dirtyChai = require('dirty-chai')
 chai.use(dirtyChai)
 const expect = chai.expect
+const sinon = require('sinon')
 
 const multihashing = require('../src')
 const fixtures = require('./fixtures/encodes')
 
 describe('multihashing', () => {
-  fixtures.forEach((fixture) => {
+  for (const fixture of fixtures) {
     const raw = fixture[0]
     const func = fixture[1]
     const encoded = fixture[2]
@@ -19,7 +20,7 @@ describe('multihashing', () => {
       const digest = await multihashing(Buffer.from(raw), func)
       expect(digest.toString('hex')).to.eql(encoded)
     })
-  })
+  }
 
   it('cuts the length', async () => {
     const buf = Buffer.from('beep boop')
@@ -39,4 +40,45 @@ describe('multihashing', () => {
       Buffer.from('90ea688e275d580567325032492b597bc77221c62493e76330b85ddda191ef7c', 'hex')
     )
   })
+})
+
+describe('error handling', () => {
+  const methods = {
+    multihashing: multihashing,
+    digest: multihashing.digest,
+    createHash: (buff, alg) => multihashing.createHash(alg)
+  }
+
+  for (const [name, fn] of Object.entries(methods)) {
+    describe(name, () => {
+      it('throws an error when there is no hashing algorithm specified', async () => {
+        const buf = Buffer.from('beep boop')
+
+        try {
+          await fn(buf)
+        } catch (err) {
+          expect(err).to.exist()
+          expect(err.code).to.eql('ERR_HASH_ALGORITHM_NOT_SPECIFIED')
+          return
+        }
+        expect.fail('Did not throw')
+      })
+
+      it('throws an error when the hashing algorithm is not supported', async () => {
+        const buf = Buffer.from('beep boop')
+
+        const stub = sinon.stub(require('multihashes'), 'coerceCode').returns('snake-oil')
+        try {
+          await fn(buf, 'snake-oil')
+        } catch (err) {
+          expect(err).to.exist()
+          expect(err.code).to.eql('ERR_HASH_ALGORITHM_NOT_SUPPORTED')
+          return
+        } finally {
+          stub.restore()
+        }
+        expect.fail('Did not throw')
+      })
+    })
+  }
 })
