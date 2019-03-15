@@ -30,15 +30,12 @@ const algs = [
 ]
 
 algs.forEach((alg) => {
-  suite.add(alg, function (d) {
+  suite.add(alg, async function (d) {
     const buf = Buffer.alloc(10 * 1024)
     buf.fill(Math.ceil(Math.random() * 100))
-    multihashing(buf, alg)
-      .then(res => {
-        list.push(res)
-        d.resolve()
-      })
-      .catch(err => console.log(err))
+    const res = await multihashing(buf, alg)
+    list.push(res)
+    d.resolve()
   }, {
     defer: true
   })
