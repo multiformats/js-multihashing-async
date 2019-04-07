@@ -139,3 +139,12 @@ Multihashing.functions = {
 
 // add blake functions
 crypto.addBlake(Multihashing.functions)
+
+Multihashing.validate = (data, hash, callback) => {
+  let algo = multihash.decode(hash).name
+  Multihashing(data, algo, (err, newHash) => {
+    if (err) return callback(err)
+    callback(err, Buffer.compare(hash, newHash) === 0)
+  })
+}
+
