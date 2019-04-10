@@ -147,4 +147,3 @@ Multihashing.validate = (data, hash, callback) => {
     callback(err, Buffer.compare(hash, newHash) === 0)
   })
 }
-

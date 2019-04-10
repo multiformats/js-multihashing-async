@@ -88,7 +88,7 @@ describe('validate', () => {
       })
     })
   })
-  
+
   it('false on fail', done => {
     multihashing(Buffer.from('test'), 'sha2-256', (err, hash) => {
       if (err) throw done(err)
@@ -100,4 +100,3 @@ describe('validate', () => {
     })
   })
 })
-
