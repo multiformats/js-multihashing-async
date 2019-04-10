@@ -76,3 +76,27 @@ describe('multihashing', () => {
     })
   })
 })
+
+describe('validate', () => {
+  it('true on pass', done => {
+    multihashing(Buffer.from('test'), 'sha2-256', (err, hash) => {
+      if (err) throw done(err)
+      multihashing.validate(Buffer.from('test'), hash, (err, bool) => {
+        if (err) throw done(err)
+        expect(bool).to.eql(true)
+        done()
+      })
+    })
+  })
+
+  it('false on fail', done => {
+    multihashing(Buffer.from('test'), 'sha2-256', (err, hash) => {
+      if (err) throw done(err)
+      multihashing.validate(Buffer.from('test-fail'), hash, (err, bool) => {
+        if (err) throw done(err)
+        expect(bool).to.eql(false)
+        done()
+      })
+    })
+  })
+})
