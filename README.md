@@ -15,6 +15,10 @@
 
 [Hugo Dias](https://github.com/hugomrdias)
 
+### Notice 
+> This module is moving to async/await starting from 0.7.0.   
+> The last minor version to support callbacks is 0.6.0, any backports will merged to the branch `callbacks` and released under  `>0.6.0 <0.7.0`.
+
 #### Wait, why, how is this different from Node `crypto`?
 
 This module just makes working with multihashes a bit nicer.
