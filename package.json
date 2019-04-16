@@ -3,19 +3,22 @@
   "version": "0.6.0",
   "description": "multiple hash functions",
   "keywords": [
-    "multihash"
+    "multihash",
+    "hash",
+    "hashing",
+    "async"
   ],
   "homepage": "https://github.com/multiformats/js-multihashing-async",
   "bugs": "https://github.com/multiformats/js-multihashing-async/issues",
   "license": "MIT",
-  "leadMaintainer": "Hugo Dias <mail@hugodias.me>",
+  "leadMaintainer": "Hugo Dias <hugomrdias@gmail.com>",
   "files": [
     "src",
     "dist"
   ],
   "main": "src/index.js",
   "browser": {
-    "./src/crypto-sha1-2.js": "./src/crypto-sha1-2-browser.js"
+    "./src/sha.js": "./src/sha.browser.js"
   },
   "repository": "github:multiformats/js-multihashing-async",
   "scripts": {
@@ -32,16 +35,18 @@
   },
   "dependencies": {
     "blakejs": "^1.1.0",
+    "buffer": "^5.2.1",
+    "err-code": "^1.1.2",
     "js-sha3": "~0.8.0",
     "multihashes": "~0.4.13",
-    "murmurhash3js": "^3.0.1",
-    "nodeify": "^1.0.1"
+    "murmurhash3js-revisited": "^3.0.0"
   },
   "devDependencies": {
-    "aegir": "^18.0.3",
+    "aegir": "^18.2.2",
     "benchmark": "^2.1.4",
     "chai": "^4.1.2",
-    "dirty-chai": "^2.0.1"
+    "dirty-chai": "^2.0.1",
+    "sinon": "^7.2.7"
   },
   "engines": {
     "node": ">=6.0.0",

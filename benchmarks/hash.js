@@ -22,19 +22,20 @@ const algs = [
   'keccak-384',
   'keccak-512',
   'murmur3-32',
-  'murmur3-128'
+  'murmur3-128',
+  'dbl-sha2-256',
+  'blake2b-256',
+  'blake2b-512',
+  'blake2s-256'
 ]
 
 algs.forEach((alg) => {
-  suite.add(alg, function (d) {
+  suite.add(alg, async function (d) {
     const buf = Buffer.alloc(10 * 1024)
     buf.fill(Math.ceil(Math.random() * 100))
-
-    multihashing(buf, alg, (err, res) => {
-      if (err) throw err
-      list.push(res)
-      d.resolve()
-    })
+    const res = await multihashing(buf, alg)
+    list.push(res)
+    d.resolve()
   }, {
     defer: true
   })
