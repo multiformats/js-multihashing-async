@@ -1,3 +1,18 @@
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/multiformats/js-multihashing-async/compare/v0.6.0...v0.7.0) (2019-04-16)
+
+
+### Features
+
+* change api to async/await ([#37](https://github.com/multiformats/js-multihashing-async/issues/37)) ([01f1da6](https://github.com/multiformats/js-multihashing-async/commit/01f1da6))
+
+
+### BREAKING CHANGES
+
+* callbacks are not supported!!
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/multiformats/js-multihashing-async/compare/v0.5.2...v0.6.0) (2019-04-12)
 
