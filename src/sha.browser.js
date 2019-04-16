@@ -1,4 +1,7 @@
 'use strict'
+
+const { Buffer } = require('buffer')
+
 const crypto = self.crypto || self.msCrypto
 
 module.exports = (algorithm) => {
@@ -21,7 +24,7 @@ module.exports = (algorithm) => {
         return Buffer.from(await crypto.subtle.digest({ name: 'SHA-256' }, d))
       }
       default:
-        throw new TypeError(`${algorithm} is not a supported algorithm`)
+        throw new Error(`${algorithm} is not a supported algorithm`)
     }
   }
 }

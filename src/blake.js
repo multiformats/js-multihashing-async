@@ -1,5 +1,6 @@
 'use strict'
 
+const { Buffer } = require('buffer')
 const blake = require('blakejs')
 
 const minB = 0xb201

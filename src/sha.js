@@ -17,6 +17,6 @@ module.exports = (algorithm) => async (data) => {
       return crypto.createHash('sha256').update(first).digest()
     }
     default:
-      throw new TypeError(`${algorithm} is not a supported algorithm`)
+      throw new Error(`${algorithm} is not a supported algorithm`)
   }
 }

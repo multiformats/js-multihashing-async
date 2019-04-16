@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 'use strict'
 
+const { Buffer } = require('buffer')
 const chai = require('chai')
 const dirtyChai = require('dirty-chai')
 chai.use(dirtyChai)
@@ -43,26 +44,17 @@ describe('multihashing', () => {
 })
 
 describe('validate', () => {
-  it('true on pass', done => {
-    multihashing(Buffer.from('test'), 'sha2-256', (err, hash) => {
-      if (err) throw done(err)
-      multihashing.validate(Buffer.from('test'), hash, (err, bool) => {
-        if (err) throw done(err)
-        expect(bool).to.eql(true)
-        done()
-      })
-    })
+  it('true on pass', async () => {
+    const hash = await multihashing(Buffer.from('test'), 'sha2-256')
+    const validation = await multihashing.validate(Buffer.from('test'), hash)
+
+    return expect(validation).to.eql(true)
   })
 
-  it('false on fail', done => {
-    multihashing(Buffer.from('test'), 'sha2-256', (err, hash) => {
-      if (err) throw done(err)
-      multihashing.validate(Buffer.from('test-fail'), hash, (err, bool) => {
-        if (err) throw done(err)
-        expect(bool).to.eql(false)
-        done()
-      })
-    })
+  it('false on fail', async () => {
+    const hash = await multihashing(Buffer.from('test'), 'sha2-256')
+    const validation = await multihashing.validate(Buffer.from('test-fail'), hash)
+    return expect(validation).to.eql(false)
   })
 })
 

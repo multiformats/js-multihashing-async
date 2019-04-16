@@ -1,5 +1,7 @@
 'use strict'
 
+const { Buffer } = require('buffer')
+
 const fromNumberTo32BitBuf = (number) => {
   const bytes = new Array(4)
 

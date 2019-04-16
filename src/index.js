@@ -1,5 +1,6 @@
 'use strict'
 
+const { Buffer } = require('buffer')
 const errcode = require('err-code')
 const multihash = require('multihashes')
 const crypto = require('./crypto')
@@ -102,11 +103,10 @@ Multihashing.functions = {
 // add blake functions
 crypto.addBlake(Multihashing.functions)
 
-Multihashing.validate = (data, hash, callback) => {
-  let algo = multihash.decode(hash).name
-  Multihashing(data, algo, (err, newHash) => {
-    if (err) return callback(err)
-    callback(err, Buffer.compare(hash, newHash) === 0)
-  })
+Multihashing.validate = async (buf, hash) => {
+  const newHash = await Multihashing(buf, multihash.decode(hash).name)
+
+  return Buffer.compare(hash, newHash) === 0
 }
+
 module.exports = Multihashing

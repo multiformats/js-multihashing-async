@@ -1,5 +1,6 @@
 'use strict'
 
+const { Buffer } = require('buffer')
 const sha3 = require('js-sha3')
 const mur = require('murmurhash3js-revisited')
 const sha = require('./sha')
