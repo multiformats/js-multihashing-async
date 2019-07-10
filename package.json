@@ -38,19 +38,19 @@
     "buffer": "^5.2.1",
     "err-code": "^1.1.2",
     "js-sha3": "~0.8.0",
-    "multihashes": "~0.4.13",
+    "multihashes": "~0.4.15",
     "murmurhash3js-revisited": "^3.0.0"
   },
   "devDependencies": {
-    "aegir": "^18.2.2",
+    "aegir": "^19.0.5",
     "benchmark": "^2.1.4",
     "chai": "^4.1.2",
     "dirty-chai": "^2.0.1",
-    "sinon": "^7.2.7"
+    "sinon": "^7.3.2"
   },
   "engines": {
-    "node": ">=6.0.0",
-    "npm": ">=3.0.0"
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
   },
   "contributors": [
     "André Cruz <andremiguelcruz@msn.com>",
