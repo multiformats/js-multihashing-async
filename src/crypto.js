@@ -9,6 +9,7 @@ const { fromNumberTo32BitBuf } = require('./utils')
 // Note that although this function doesn't do any asynchronous work, we mark
 // the function as async because it must return a Promise to match the API
 // for other functions that do perform asynchronous work (see sha.browser.js)
+// eslint-disable-next-line
 const hash = (algorithm) => async (data) => {
   switch (algorithm) {
     case 'sha3-224':

@@ -42,6 +42,7 @@ algs.forEach((alg) => {
 })
 suite
   .on('cycle', (event) => {
+    // eslint-disable-next-line
     console.log(String(event.target))
     list = []
   })
