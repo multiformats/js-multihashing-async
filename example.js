@@ -7,6 +7,7 @@ function print (err, mh) {
   if (err) {
     throw err
   }
+  // eslint-disable-next-line
   console.log(mh)
 }
 multihashing(buf, 'sha1', print)
