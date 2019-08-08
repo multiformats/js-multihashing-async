@@ -66,6 +66,8 @@ Multihashing.createHash = function (alg) {
  * @type {Object}
  */
 Multihashing.functions = {
+  // identity
+  0x00: x => x,
   // sha1
   0x11: crypto.sha1,
   // sha2-256
