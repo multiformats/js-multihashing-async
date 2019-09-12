@@ -1,3 +1,14 @@
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/multiformats/js-multihashing-async/compare/v0.7.0...v0.8.0) (2019-09-12)
+
+
+### Bug Fixes
+
+* add identity hashing ([#53](https://github.com/multiformats/js-multihashing-async/issues/53)) ([3d4958e](https://github.com/multiformats/js-multihashing-async/commit/3d4958e))
+* update deps and fix err-code usage ([fca09d6](https://github.com/multiformats/js-multihashing-async/commit/fca09d6))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/multiformats/js-multihashing-async/compare/v0.6.0...v0.7.0) (2019-04-16)
 
