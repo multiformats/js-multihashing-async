@@ -42,7 +42,10 @@ const hash = (algorithm) => async (data) => {
   }
 }
 
+const identity = data => Buffer.from(data)
+
 module.exports = {
+  identity,
   sha1: sha('sha1'),
   sha2256: sha('sha2-256'),
   sha2512: sha('sha2-512'),

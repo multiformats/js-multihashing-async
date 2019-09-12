@@ -21,6 +21,13 @@ describe('multihashing', () => {
       const digest = await multihashing(Buffer.from(raw), func)
       expect(digest.toString('hex')).to.eql(encoded)
     })
+
+    it(`encodes Uint8Array in ${func}`, async function () {
+      const buffer = Buffer.from(raw)
+      const bytes = new Uint8Array(buffer, buffer.byteOffset, buffer.byteLength)
+      const digest = await multihashing(bytes, func)
+      expect(digest.toString('hex')).to.eql(encoded)
+    })
   }
 
   it('cuts the length', async () => {

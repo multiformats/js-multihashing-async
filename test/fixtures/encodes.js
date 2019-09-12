@@ -2,6 +2,10 @@
 
 module.exports = [[
   'beep boop',
+  'identity',
+  '00096265657020626f6f70'
+], [
+  'beep boop',
   'sha1',
   '11147c8357577f51d4f0a8d393aa1aaafb28863d9421'
 ], [
