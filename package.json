@@ -1,6 +1,6 @@
 {
   "name": "multihashing-async",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "multiple hash functions",
   "keywords": [
     "multihash",
@@ -54,13 +54,16 @@
   },
   "contributors": [
     "André Cruz <andremiguelcruz@msn.com>",
+    "Arve Knudsen <arve.knudsen@gmail.com>",
     "David Dias <daviddias.p@gmail.com>",
     "David Dias <mail@daviddias.me>",
     "Dmitriy Ryajov <dryajov@gmail.com>",
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "Harlan T Wood <harlantwood@users.noreply.github.com>",
-    "Hugo Dias <mail@hugodias.me>",
     "Hugo Dias <hugomrdias@gmail.com>",
+    "Hugo Dias <mail@hugodias.me>",
+    "Irakli Gozalishvili <contact@gozala.io>",
+    "Jacob Heun <jacobheun@gmail.com>",
     "Juan Batiz-Benet <juan@benet.ai>",
     "Marcin Rataj <lidel@lidel.org>",
     "Matteo Collina <matteo.collina@gmail.com>",
@@ -71,7 +74,7 @@
     "Richard Schneider <makaretu@gmail.com>",
     "Victor Bjelkholm <victorbjelkholm@gmail.com>",
     "Volker Mische <volker.mische@gmail.com>",
-    "Irakli Gozalishvili <contact@gozala.io>",
+    "dependabot-preview[bot] <27856297+dependabot-preview[bot]@users.noreply.github.com>",
     "npm-to-cdn-bot (by Forbes Lindesay) <npmcdn-to-unpkg-bot@users.noreply.github.com>"
   ]
 }
