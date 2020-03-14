@@ -1,6 +1,6 @@
 {
   "name": "multihashing-async",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "multiple hash functions",
   "keywords": [
     "multihash",
@@ -53,28 +53,23 @@
     "npm": ">=6.0.0"
   },
   "contributors": [
-    "André Cruz <andremiguelcruz@msn.com>",
-    "Arve Knudsen <arve.knudsen@gmail.com>",
     "David Dias <daviddias.p@gmail.com>",
-    "David Dias <mail@daviddias.me>",
-    "Dmitriy Ryajov <dryajov@gmail.com>",
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
-    "Harlan T Wood <harlantwood@users.noreply.github.com>",
     "Hugo Dias <hugomrdias@gmail.com>",
-    "Hugo Dias <mail@hugodias.me>",
-    "Irakli Gozalishvili <contact@gozala.io>",
-    "Jacob Heun <jacobheun@gmail.com>",
     "Juan Batiz-Benet <juan@benet.ai>",
-    "Marcin Rataj <lidel@lidel.org>",
-    "Matteo Collina <matteo.collina@gmail.com>",
+    "Richard Littauer <richard.littauer@gmail.com>",
+    "Pedro Teixeira <i@pgte.me>",
+    "Victor Bjelkholm <victorbjelkholm@gmail.com>",
     "Mikeal Rogers <mikeal.rogers@gmail.com>",
     "Mitar <mitar.github@tnode.com>",
-    "Pedro Teixeira <i@pgte.me>",
-    "Richard Littauer <richard.littauer@gmail.com>",
     "Richard Schneider <makaretu@gmail.com>",
-    "Victor Bjelkholm <victorbjelkholm@gmail.com>",
     "Volker Mische <volker.mische@gmail.com>",
-    "dependabot-preview[bot] <27856297+dependabot-preview[bot]@users.noreply.github.com>",
-    "npm-to-cdn-bot (by Forbes Lindesay) <npmcdn-to-unpkg-bot@users.noreply.github.com>"
+    "André Cruz <andremiguelcruz@msn.com>",
+    "Arve Knudsen <arve.knudsen@gmail.com>",
+    "Dmitriy Ryajov <dryajov@gmail.com>",
+    "Irakli Gozalishvili <contact@gozala.io>",
+    "Jacob Heun <jacobheun@gmail.com>",
+    "Marcin Rataj <lidel@lidel.org>",
+    "Matteo Collina <matteo.collina@gmail.com>"
   ]
 }
