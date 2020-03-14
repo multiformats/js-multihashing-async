@@ -1,3 +1,13 @@
+<a name="0.8.1"></a>
+## [0.8.1](https://github.com/multiformats/js-multihashing-async/compare/v0.8.0...v0.8.1) (2020-03-14)
+
+
+### Bug Fixes
+
+* expose sha ([#66](https://github.com/multiformats/js-multihashing-async/issues/66)) ([dbe2a4a](https://github.com/multiformats/js-multihashing-async/commit/dbe2a4a))
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://github.com/multiformats/js-multihashing-async/compare/v0.7.0...v0.8.0) (2019-09-12)
 
