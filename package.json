@@ -42,7 +42,7 @@
     "murmurhash3js-revisited": "^3.0.0"
   },
   "devDependencies": {
-    "aegir": "^21.3.0",
+    "aegir": "^22.0.0",
     "benchmark": "^2.1.4",
     "chai": "^4.1.2",
     "dirty-chai": "^2.0.1",
