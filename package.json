@@ -38,7 +38,7 @@
     "buffer": "^5.4.3",
     "err-code": "^2.0.0",
     "js-sha3": "~0.8.0",
-    "multihashes": "~0.4.15",
+    "multihashes": "~1.0.1",
     "murmurhash3js-revisited": "^3.0.0"
   },
   "devDependencies": {
