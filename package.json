@@ -1,6 +1,6 @@
 {
   "name": "multihashing-async",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "multiple hash functions",
   "keywords": [
     "multihash",
@@ -60,6 +60,7 @@
     "Richard Littauer <richard.littauer@gmail.com>",
     "Pedro Teixeira <i@pgte.me>",
     "Victor Bjelkholm <victorbjelkholm@gmail.com>",
+    "achingbrain <alex@achingbrain.net>",
     "Mikeal Rogers <mikeal.rogers@gmail.com>",
     "Mitar <mitar.github@tnode.com>",
     "Richard Schneider <makaretu@gmail.com>",
