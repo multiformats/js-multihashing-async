@@ -35,17 +35,15 @@
   },
   "dependencies": {
     "blakejs": "^1.1.0",
-    "buffer": "^5.4.3",
     "err-code": "^2.0.0",
     "js-sha3": "^0.8.0",
-    "multihashes": "^1.0.1",
-    "murmurhash3js-revisited": "^3.0.0"
+    "multihashes": "^2.0.0",
+    "murmurhash3js-revisited": "^3.0.0",
+    "uint8arrays": "^1.0.0"
   },
   "devDependencies": {
     "aegir": "^25.0.0",
     "benchmark": "^2.1.4",
-    "chai": "^4.1.2",
-    "dirty-chai": "^2.0.1",
     "sinon": "^9.0.2"
   },
   "engines": {
