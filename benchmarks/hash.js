@@ -31,7 +31,7 @@ const algs = [
 
 algs.forEach((alg) => {
   suite.add(alg, async function (d) {
-    const buf = Buffer.alloc(10 * 1024)
+    const buf = new Uint8Array(10 * 1024)
     buf.fill(Math.ceil(Math.random() * 100))
     const res = await multihashing(buf, alg)
     list.push(res)

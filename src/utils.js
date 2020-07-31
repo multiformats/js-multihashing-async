@@ -1,7 +1,5 @@
 'use strict'
 
-const { Buffer } = require('buffer')
-
 const fromNumberTo32BitBuf = (number) => {
   const bytes = new Array(4)
 
@@ -10,7 +8,7 @@ const fromNumberTo32BitBuf = (number) => {
     number = number >> 8
   }
 
-  return Buffer.from(bytes)
+  return Uint8Array.from(bytes)
 }
 
 module.exports = {

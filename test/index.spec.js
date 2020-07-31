@@ -1,12 +1,10 @@
 /* eslint-env mocha */
 'use strict'
 
-const { Buffer } = require('buffer')
-const chai = require('chai')
-const dirtyChai = require('dirty-chai')
-chai.use(dirtyChai)
-const expect = chai.expect
+const { expect } = require('aegir/utils/chai')
 const sinon = require('sinon')
+const uint8ArrayFromString = require('uint8arrays/from-string')
+const uint8ArrayToString = require('uint8arrays/to-string')
 
 const multihashing = require('../src')
 const fixtures = require('./fixtures/encodes')
@@ -18,49 +16,43 @@ describe('multihashing', () => {
     const encoded = fixture[2]
 
     it(`encodes in ${func}`, async function () {
-      const digest = await multihashing(Buffer.from(raw), func)
-      expect(digest.toString('hex')).to.eql(encoded)
-    })
-
-    it(`encodes Uint8Array in ${func}`, async function () {
-      const buffer = Buffer.from(raw)
-      const bytes = new Uint8Array(buffer, buffer.byteOffset, buffer.byteLength)
-      const digest = await multihashing(bytes, func)
-      expect(digest.toString('hex')).to.eql(encoded)
+      const digest = await multihashing(uint8ArrayFromString(raw), func)
+      expect(digest).to.be.an.instanceOf(Uint8Array)
+      expect(uint8ArrayToString(digest, 'base16')).to.eql(encoded)
     })
   }
 
   it('cuts the length', async () => {
-    const buf = Buffer.from('beep boop')
+    const buf = uint8ArrayFromString('beep boop')
 
     const digest = await multihashing(buf, 'sha2-256', 10)
     expect(digest)
-      .to.eql(Buffer.from('120a90ea688e275d58056732', 'hex'))
+      .to.eql(uint8ArrayFromString('120a90ea688e275d58056732', 'base16'))
   })
 
   it('digest only, without length', async () => {
-    const buf = Buffer.from('beep boop')
-
+    const buf = uint8ArrayFromString('beep boop')
     const digest = await multihashing.digest(buf, 'sha2-256')
+    expect(digest).to.be.an.instanceOf(Uint8Array)
     expect(
       digest
     ).to.eql(
-      Buffer.from('90ea688e275d580567325032492b597bc77221c62493e76330b85ddda191ef7c', 'hex')
+      uint8ArrayFromString('90ea688e275d580567325032492b597bc77221c62493e76330b85ddda191ef7c', 'base16')
     )
   })
 })
 
 describe('validate', () => {
   it('true on pass', async () => {
-    const hash = await multihashing(Buffer.from('test'), 'sha2-256')
-    const validation = await multihashing.validate(Buffer.from('test'), hash)
+    const hash = await multihashing(uint8ArrayFromString('test'), 'sha2-256')
+    const validation = await multihashing.validate(uint8ArrayFromString('test'), hash)
 
     return expect(validation).to.eql(true)
   })
 
   it('false on fail', async () => {
-    const hash = await multihashing(Buffer.from('test'), 'sha2-256')
-    const validation = await multihashing.validate(Buffer.from('test-fail'), hash)
+    const hash = await multihashing(uint8ArrayFromString('test'), 'sha2-256')
+    const validation = await multihashing.validate(uint8ArrayFromString('test-fail'), hash)
     return expect(validation).to.eql(false)
   })
 })
@@ -75,7 +67,7 @@ describe('error handling', () => {
   for (const [name, fn] of Object.entries(methods)) {
     describe(name, () => {
       it('throws an error when there is no hashing algorithm specified', async () => {
-        const buf = Buffer.from('beep boop')
+        const buf = uint8ArrayFromString('beep boop')
 
         try {
           await fn(buf)
@@ -88,7 +80,7 @@ describe('error handling', () => {
       })
 
       it('throws an error when the hashing algorithm is not supported', async () => {
-        const buf = Buffer.from('beep boop')
+        const buf = uint8ArrayFromString('beep boop')
 
         const stub = sinon.stub(require('multihashes'), 'coerceCode').returns('snake-oil')
         try {
