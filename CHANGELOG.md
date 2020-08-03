@@ -1,3 +1,13 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/multiformats/js-multihashing-async/compare/v1.0.0...v2.0.0) (2020-08-03)
+
+
+### Bug Fixes
+
+* replace node buffers with uint8arrays ([#78](https://github.com/multiformats/js-multihashing-async/issues/78)) ([eb612f3](https://github.com/multiformats/js-multihashing-async/commit/eb612f3))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/multiformats/js-multihashing-async/compare/v0.8.2...v1.0.0) (2020-06-23)
 
