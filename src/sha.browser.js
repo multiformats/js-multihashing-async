@@ -1,7 +1,6 @@
 /* eslint-disable require-await */
 'use strict'
 
-const { Buffer } = require('buffer')
 const multihash = require('multihashes')
 
 const crypto = self.crypto || self.msCrypto
@@ -14,14 +13,14 @@ const digest = async (data, alg) => {
   }
   switch (alg) {
     case 'sha1':
-      return Buffer.from(await crypto.subtle.digest({ name: 'SHA-1' }, data))
+      return new Uint8Array(await crypto.subtle.digest({ name: 'SHA-1' }, data))
     case 'sha2-256':
-      return Buffer.from(await crypto.subtle.digest({ name: 'SHA-256' }, data))
+      return new Uint8Array(await crypto.subtle.digest({ name: 'SHA-256' }, data))
     case 'sha2-512':
-      return Buffer.from(await crypto.subtle.digest({ name: 'SHA-512' }, data))
+      return new Uint8Array(await crypto.subtle.digest({ name: 'SHA-512' }, data))
     case 'dbl-sha2-256': {
       const d = await crypto.subtle.digest({ name: 'SHA-256' }, data)
-      return Buffer.from(await crypto.subtle.digest({ name: 'SHA-256' }, d))
+      return new Uint8Array(await crypto.subtle.digest({ name: 'SHA-256' }, d))
     }
     default:
       throw new Error(`${alg} is not a supported algorithm`)

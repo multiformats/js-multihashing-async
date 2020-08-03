@@ -1,6 +1,5 @@
 'use strict'
 
-const { Buffer } = require('buffer')
 const blake = require('blakejs')
 
 const minB = 0xb201
@@ -25,7 +24,7 @@ const blake2s = {
 const makeB2Hash = (size, hf) => async (data) => {
   const ctx = hf.init(size, null)
   hf.update(ctx, data)
-  return Buffer.from(hf.digest(ctx))
+  return hf.digest(ctx)
 }
 
 module.exports = (table) => {

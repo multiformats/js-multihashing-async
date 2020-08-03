@@ -1,16 +1,16 @@
 'use strict'
 
-const { Buffer } = require('buffer')
 const errcode = require('err-code')
 const multihash = require('multihashes')
 const crypto = require('./crypto')
+const equals = require('uint8arrays/equals')
 
 /**
  * Hash the given `buf` using the algorithm specified by `alg`.
- * @param {Buffer} buf - The value to hash.
+ * @param {Uint8Array} buf - The value to hash.
  * @param {number|string} alg - The algorithm to use eg 'sha1'
  * @param {number} [length] - Optionally trim the result to this length.
- * @returns {Promise<Buffer>}
+ * @returns {Promise<Uint8Array>}
  */
 async function Multihashing (buf, alg, length) {
   const digest = await Multihashing.digest(buf, alg, length)
@@ -18,22 +18,15 @@ async function Multihashing (buf, alg, length) {
 }
 
 /**
- * The `buffer` module for easy use in the browser.
- *
- * @type {Buffer}
- */
-Multihashing.Buffer = Buffer // for browser things
-
-/**
  * Expose multihash itself, to avoid silly double requires.
  */
 Multihashing.multihash = multihash
 
 /**
- * @param {Buffer} buf - The value to hash.
+ * @param {Uint8Array} buf - The value to hash.
  * @param {number|string} alg - The algorithm to use eg 'sha1'
  * @param {number} [length] - Optionally trim the result to this length.
- * @returns {Promise<Buffer>}
+ * @returns {Promise<Uint8Array>}
  */
 Multihashing.digest = async (buf, alg, length) => {
   const hash = Multihashing.createHash(alg)
@@ -108,7 +101,7 @@ crypto.addBlake(Multihashing.functions)
 Multihashing.validate = async (buf, hash) => {
   const newHash = await Multihashing(buf, multihash.decode(hash).name)
 
-  return Buffer.compare(hash, newHash) === 0
+  return equals(hash, newHash)
 }
 
 module.exports = Multihashing
