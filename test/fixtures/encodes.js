@@ -1,5 +1,8 @@
 'use strict'
 
+/**
+ * @type {Array<[string, import('../../src/types').HashName, string]>}
+ */
 module.exports = [[
   'beep boop',
   'identity',

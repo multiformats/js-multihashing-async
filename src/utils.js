@@ -1,5 +1,9 @@
 'use strict'
 
+/**
+ * @param {number} number
+ * @returns {Uint8Array}
+ */
 const fromNumberTo32BitBuf = (number) => {
   const bytes = new Uint8Array(4)
 

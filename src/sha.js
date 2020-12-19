@@ -7,6 +7,12 @@ const multihash = require('multihashes')
 // the function as async because it must return a Promise to match the API
 // for other functions that do perform asynchronous work (see sha.browser.js)
 // eslint-disable-next-line
+
+/**
+ * @param {Uint8Array} data
+ * @param {import('./types').HashName} alg
+ * @returns {Promise<Uint8Array>}
+ */
 const digest = async (data, alg) => {
   switch (alg) {
     case 'sha1':
@@ -25,12 +31,21 @@ const digest = async (data, alg) => {
 }
 
 module.exports = {
+  /**
+   * @param {import('./types').HashName} alg
+   * @returns {import('./types').Digest}
+   */
   factory: (alg) => async (data) => {
     return digest(data, alg)
   },
   digest,
+  /**
+   * @param {Uint8Array} buf
+   * @param {import('./types').HashName} alg
+   * @param {number} [length]
+   */
   multihashing: async (buf, alg, length) => {
-    const h = await digest(buf, alg, length)
+    const h = await digest(buf, alg)
     return multihash.encode(h, alg, length)
   }
 }

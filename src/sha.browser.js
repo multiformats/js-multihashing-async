@@ -1,12 +1,22 @@
 /* eslint-disable require-await */
 'use strict'
 
-const multihash = require('multihashes')
+const multihash = require('multihashes/src/index')
 
-const crypto = self.crypto || self.msCrypto
+const crypto =
+  self.crypto ||
+  /** @type {typeof window.crypto} */
+  // @ts-ignore - unknown property
+  (self.msCrypto)
 
+/**
+ *
+ * @param {Uint8Array} data
+ * @param {import('./types').HashName} alg
+ * @returns {Promise<Uint8Array>}
+ */
 const digest = async (data, alg) => {
-  if (typeof self === 'undefined' || (!self.crypto && !self.msCrypto)) {
+  if (typeof self === 'undefined' || !crypto) {
     throw new Error(
       'Please use a browser with webcrypto support and ensure the code has been delivered securely via HTTPS/TLS and run within a Secure Context'
     )
@@ -28,12 +38,21 @@ const digest = async (data, alg) => {
 }
 
 module.exports = {
+  /**
+   * @param {import('./types').HashName} alg
+   * @returns {import('./types').Digest}
+   */
   factory: (alg) => async (data) => {
     return digest(data, alg)
   },
   digest,
+  /**
+   * @param {Uint8Array} buf
+   * @param {import('./types').HashName} alg
+   * @param {number} [length]
+   */
   multihashing: async (buf, alg, length) => {
-    const h = await digest(buf, alg, length)
+    const h = await digest(buf, alg)
     return multihash.encode(h, alg, length)
   }
 }
