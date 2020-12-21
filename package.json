@@ -39,7 +39,7 @@
     "js-sha3": "^0.8.0",
     "multihashes": "^3.0.1",
     "murmurhash3js-revisited": "^3.0.0",
-    "uint8arrays": "^1.0.0"
+    "uint8arrays": "^2.0.5"
   },
   "devDependencies": {
     "aegir": "^25.0.0",
