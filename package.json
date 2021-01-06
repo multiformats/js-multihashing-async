@@ -42,7 +42,7 @@
     "uint8arrays": "^1.0.0"
   },
   "devDependencies": {
-    "aegir": "^25.0.0",
+    "aegir": "^30.3.0",
     "benchmark": "^2.1.4",
     "sinon": "^9.0.2"
   },
