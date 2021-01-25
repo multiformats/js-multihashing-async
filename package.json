@@ -45,6 +45,7 @@
     "uint8arrays": "^2.0.5"
   },
   "devDependencies": {
+    "@types/err-code": "^2.0.0",
     "aegir": "ipfs/aegir#feat/docs2.0",
     "benchmark": "^2.1.4",
     "sinon": "^9.0.2"
