@@ -1,7 +1,7 @@
 /* eslint-disable require-await */
 'use strict'
 
-const multihash = require('multihashes/src/index')
+const multihash = require('multihashes')
 
 const crypto =
   self.crypto ||

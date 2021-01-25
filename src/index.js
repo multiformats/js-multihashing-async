@@ -6,10 +6,15 @@ const crypto = require('./crypto')
 const equals = require('uint8arrays/equals')
 
 /**
+ * @typedef {import("./types").Digest} Digest
+ * @typedef {import("./types").HashName} HashName
+ */
+
+/**
  * Hash the given `bytes` using the algorithm specified by `alg`.
  *
  * @param {Uint8Array} bytes - The value to hash.
- * @param {import('./types').HashName} alg - The algorithm to use eg 'sha1'
+ * @param {HashName} alg - The algorithm to use eg 'sha1'
  * @param {number} [length] - Optionally trim the result to this length.
  * @returns {Promise<Uint8Array>}
  */
@@ -25,7 +30,7 @@ Multihashing.multihash = multihash
 
 /**
  * @param {Uint8Array} bytes - The value to hash.
- * @param {import('./types').HashName} alg - The algorithm to use eg 'sha1'
+ * @param {HashName} alg - The algorithm to use eg 'sha1'
  * @param {number} [length] - Optionally trim the result to this length.
  * @returns {Promise<Uint8Array>}
  */
@@ -38,8 +43,8 @@ Multihashing.digest = async (bytes, alg, length) => {
 /**
  * Creates a function that hashes with the given algorithm
  *
- * @param {import('./types').HashName} alg - The algorithm to use eg 'sha1'
- * @returns {import('./types').Digest} - The hash function corresponding to `alg`
+ * @param {HashName} alg - The algorithm to use eg 'sha1'
+ * @returns {Digest} - The hash function corresponding to `alg`
  */
 Multihashing.createHash = function (alg) {
   if (!alg) {
@@ -58,7 +63,7 @@ Multihashing.createHash = function (alg) {
 /**
  * Mapping of multihash codes to their hashing functions.
  *
- * @type {Record<number, import('./types').Digest>}
+ * @type {Record<number, Digest>}
  */
 // @ts-ignore - most of those functions aren't typed
 Multihashing.functions = {

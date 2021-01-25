@@ -21,17 +21,6 @@
     "./src/sha.js": "./src/sha.browser.js"
   },
   "types": "dist/src/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "src/*": [
-        "dist/src/*",
-        "dist/src/*/index"
-      ],
-      "src/": [
-        "dist/src/index"
-      ]
-    }
-  },
   "repository": "github:multiformats/js-multihashing-async",
   "scripts": {
     "test": "aegir test",
@@ -39,7 +28,7 @@
     "test:node": "aegir test -t node",
     "lint": "aegir lint",
     "check": "aegir ts -p check",
-    "prepare": "aegir ts -p types",
+    "prepare": "aegir build --no-bundle",
     "docs": "aegir docs",
     "release": "aegir release --docs",
     "release-minor": "aegir release --type minor --docs",
@@ -49,15 +38,14 @@
   },
   "dependencies": {
     "blakejs": "^1.1.0",
-    "err-code": "git://github.com/gozala/js-err-code#feat/ts-typedefs",
+    "err-code": "^2.0.3",
     "js-sha3": "^0.8.0",
-    "multihashes": "^3.1.0",
+    "multihashes": "multiformats/js-multihash#fix/temp-types",
     "murmurhash3js-revisited": "^3.0.0",
     "uint8arrays": "^2.0.5"
   },
   "devDependencies": {
-    "@types/sinon": "9.0.9",
-    "aegir": "^30.1.0",
+    "aegir": "ipfs/aegir#feat/docs2.0",
     "benchmark": "^2.1.4",
     "sinon": "^9.0.2"
   },
