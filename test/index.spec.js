@@ -8,6 +8,9 @@ const uint8ArrayToString = require('uint8arrays/to-string')
 
 const multihashing = require('../src')
 const fixtures = require('./fixtures/encodes')
+/**
+ * @typedef {import('multihashes').HashName} HashName
+ */
 
 describe('multihashing', () => {
   for (const fixture of fixtures) {
@@ -63,7 +66,7 @@ describe('error handling', () => {
     digest: multihashing.digest,
     /**
      * @param {Uint8Array} buff
-     * @param {import('../src/types').HashName} alg
+     * @param {HashName} alg
      */
     createHash: (buff, alg) => multihashing.createHash(alg)
   }

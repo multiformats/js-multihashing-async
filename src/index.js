@@ -7,7 +7,7 @@ const equals = require('uint8arrays/equals')
 
 /**
  * @typedef {import("./types").Digest} Digest
- * @typedef {import("./types").HashName} HashName
+ * @typedef {import("multihashes").HashName} HashName
  */
 
 /**
@@ -71,7 +71,7 @@ Multihashing.functions = {
   0x00: crypto.identity,
   // sha1
   0x11: crypto.sha1,
-  // // sha2-256
+  // sha2-256
   0x12: crypto.sha2256,
   // sha2-512
   0x13: crypto.sha2512,

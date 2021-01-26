@@ -3,6 +3,11 @@
 const crypto = require('crypto')
 const multihash = require('multihashes')
 
+/**
+ * @typedef {import('multihashes').HashName} HashName
+ * @typedef {import('./types').Digest} Digest
+ */
+
 // Note that although this function doesn't do any asynchronous work, we mark
 // the function as async because it must return a Promise to match the API
 // for other functions that do perform asynchronous work (see sha.browser.js)
@@ -10,7 +15,7 @@ const multihash = require('multihashes')
 
 /**
  * @param {Uint8Array} data
- * @param {import('./types').HashName} alg
+ * @param {HashName} alg
  * @returns {Promise<Uint8Array>}
  */
 const digest = async (data, alg) => {
@@ -32,8 +37,8 @@ const digest = async (data, alg) => {
 
 module.exports = {
   /**
-   * @param {import('./types').HashName} alg
-   * @returns {import('./types').Digest}
+   * @param {HashName} alg
+   * @returns {Digest}
    */
   factory: (alg) => async (data) => {
     return digest(data, alg)
@@ -41,7 +46,7 @@ module.exports = {
   digest,
   /**
    * @param {Uint8Array} buf
-   * @param {import('./types').HashName} alg
+   * @param {HashName} alg
    * @param {number} [length]
    */
   multihashing: async (buf, alg, length) => {

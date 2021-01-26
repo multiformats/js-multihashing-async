@@ -2,7 +2,14 @@
 'use strict'
 
 const multihash = require('multihashes')
+/**
+ * @typedef {import('multihashes').HashName} HashName
+ * @typedef {import('./types').Digest} Digest
+ */
 
+/**
+ * @type {Crypto}
+ */
 const crypto =
   self.crypto ||
   /** @type {typeof window.crypto} */
@@ -12,7 +19,7 @@ const crypto =
 /**
  *
  * @param {Uint8Array} data
- * @param {import('./types').HashName} alg
+ * @param {HashName} alg
  * @returns {Promise<Uint8Array>}
  */
 const digest = async (data, alg) => {
@@ -39,8 +46,8 @@ const digest = async (data, alg) => {
 
 module.exports = {
   /**
-   * @param {import('./types').HashName} alg
-   * @returns {import('./types').Digest}
+   * @param {HashName} alg
+   * @returns {Digest}
    */
   factory: (alg) => async (data) => {
     return digest(data, alg)
@@ -48,7 +55,7 @@ module.exports = {
   digest,
   /**
    * @param {Uint8Array} buf
-   * @param {import('./types').HashName} alg
+   * @param {HashName} alg
    * @param {number} [length]
    */
   multihashing: async (buf, alg, length) => {
