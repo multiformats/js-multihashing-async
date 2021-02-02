@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@types/err-code": "^2.0.0",
+    "@types/sinon": "^9.0.10",
     "aegir": "^30.3.0",
     "benchmark": "^2.1.4",
     "sinon": "^9.0.2"
