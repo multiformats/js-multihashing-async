@@ -1,6 +1,7 @@
 'use strict'
 
 const sha3 = require('js-sha3')
+// @ts-ignore - no types available
 const mur = require('murmurhash3js-revisited')
 const { factory: sha } = require('./sha')
 const { fromNumberTo32BitBuf } = require('./utils')
@@ -10,6 +11,10 @@ const uint8ArrayFromString = require('uint8arrays/from-string')
 // the function as async because it must return a Promise to match the API
 // for other functions that do perform asynchronous work (see sha.browser.js)
 // eslint-disable-next-line
+/**
+ * @param {string} algorithm
+ * @returns {import('./types').Digest}
+ */
 const hash = (algorithm) => async (data) => {
   switch (algorithm) {
     case 'sha3-224':
@@ -42,6 +47,7 @@ const hash = (algorithm) => async (data) => {
   }
 }
 
+/** @type {import('./types').Digest} */
 const identity = data => data
 
 module.exports = {

@@ -1,5 +1,8 @@
 'use strict'
 
+/**
+ * @type {Array<[string, import('multihashes').HashName, string]>}
+ */
 module.exports = [[
   'beep boop',
   'identity',

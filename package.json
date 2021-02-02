@@ -20,12 +20,15 @@
   "browser": {
     "./src/sha.js": "./src/sha.browser.js"
   },
+  "types": "dist/src/index.d.ts",
   "repository": "github:multiformats/js-multihashing-async",
   "scripts": {
     "test": "aegir test",
     "test:browser": "aegir test -t browser",
     "test:node": "aegir test -t node",
     "lint": "aegir lint",
+    "check": "aegir ts -p check",
+    "prepare": "aegir build --no-bundle",
     "docs": "aegir docs",
     "release": "aegir release --docs",
     "release-minor": "aegir release --type minor --docs",
@@ -35,16 +38,21 @@
   },
   "dependencies": {
     "blakejs": "^1.1.0",
-    "err-code": "^2.0.0",
+    "err-code": "^3.0.0",
     "js-sha3": "^0.8.0",
-    "multihashes": "^3.0.1",
+    "multihashes": "^3.1.2",
     "murmurhash3js-revisited": "^3.0.0",
-    "uint8arrays": "^1.0.0"
+    "uint8arrays": "^2.0.5"
   },
   "devDependencies": {
-    "aegir": "^25.0.0",
+    "@types/err-code": "^2.0.0",
+    "@types/sinon": "^9.0.10",
+    "aegir": "^30.3.0",
     "benchmark": "^2.1.4",
     "sinon": "^9.0.2"
+  },
+  "eslintConfig": {
+    "extends": "ipfs"
   },
   "engines": {
     "node": ">=10.0.0",

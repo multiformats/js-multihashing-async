@@ -2,11 +2,28 @@
 'use strict'
 
 const multihash = require('multihashes')
+/**
+ * @typedef {import('multihashes').HashName} HashName
+ * @typedef {import('./types').Digest} Digest
+ */
 
-const crypto = self.crypto || self.msCrypto
+/**
+ * @type {Crypto}
+ */
+const crypto =
+  self.crypto ||
+  /** @type {typeof window.crypto} */
+  // @ts-ignore - unknown property
+  (self.msCrypto)
 
+/**
+ *
+ * @param {Uint8Array} data
+ * @param {HashName} alg
+ * @returns {Promise<Uint8Array>}
+ */
 const digest = async (data, alg) => {
-  if (typeof self === 'undefined' || (!self.crypto && !self.msCrypto)) {
+  if (typeof self === 'undefined' || !crypto) {
     throw new Error(
       'Please use a browser with webcrypto support and ensure the code has been delivered securely via HTTPS/TLS and run within a Secure Context'
     )
@@ -28,12 +45,21 @@ const digest = async (data, alg) => {
 }
 
 module.exports = {
+  /**
+   * @param {HashName} alg
+   * @returns {Digest}
+   */
   factory: (alg) => async (data) => {
     return digest(data, alg)
   },
   digest,
+  /**
+   * @param {Uint8Array} buf
+   * @param {HashName} alg
+   * @param {number} [length]
+   */
   multihashing: async (buf, alg, length) => {
-    const h = await digest(buf, alg, length)
+    const h = await digest(buf, alg)
     return multihash.encode(h, alg, length)
   }
 }

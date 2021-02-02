@@ -8,6 +8,9 @@ const uint8ArrayToString = require('uint8arrays/to-string')
 
 const multihashing = require('../src')
 const fixtures = require('./fixtures/encodes')
+/**
+ * @typedef {import('multihashes').HashName} HashName
+ */
 
 describe('multihashing', () => {
   for (const fixture of fixtures) {
@@ -61,6 +64,10 @@ describe('error handling', () => {
   const methods = {
     multihashing: multihashing,
     digest: multihashing.digest,
+    /**
+     * @param {Uint8Array} buff
+     * @param {HashName} alg
+     */
     createHash: (buff, alg) => multihashing.createHash(alg)
   }
 
@@ -70,6 +77,7 @@ describe('error handling', () => {
         const buf = uint8ArrayFromString('beep boop')
 
         try {
+          // @ts-expect-error - alg argument is expected
           await fn(buf)
         } catch (err) {
           expect(err).to.exist()
@@ -82,8 +90,10 @@ describe('error handling', () => {
       it('throws an error when the hashing algorithm is not supported', async () => {
         const buf = uint8ArrayFromString('beep boop')
 
+        // @ts-ignore - sinon is inferring that snake-oil isn't a valid alg
         const stub = sinon.stub(require('multihashes'), 'coerceCode').returns('snake-oil')
         try {
+          // @ts-expect-error - non valid algorithm
           await fn(buf, 'snake-oil')
         } catch (err) {
           expect(err).to.exist()

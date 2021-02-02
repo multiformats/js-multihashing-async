@@ -6,14 +6,20 @@ const crypto = require('./crypto')
 const equals = require('uint8arrays/equals')
 
 /**
- * Hash the given `buf` using the algorithm specified by `alg`.
- * @param {Uint8Array} buf - The value to hash.
- * @param {number|string} alg - The algorithm to use eg 'sha1'
+ * @typedef {import("./types").Digest} Digest
+ * @typedef {import("multihashes").HashName} HashName
+ */
+
+/**
+ * Hash the given `bytes` using the algorithm specified by `alg`.
+ *
+ * @param {Uint8Array} bytes - The value to hash.
+ * @param {HashName} alg - The algorithm to use eg 'sha1'
  * @param {number} [length] - Optionally trim the result to this length.
  * @returns {Promise<Uint8Array>}
  */
-async function Multihashing (buf, alg, length) {
-  const digest = await Multihashing.digest(buf, alg, length)
+async function Multihashing (bytes, alg, length) {
+  const digest = await Multihashing.digest(bytes, alg, length)
   return multihash.encode(digest, alg, length)
 }
 
@@ -23,41 +29,43 @@ async function Multihashing (buf, alg, length) {
 Multihashing.multihash = multihash
 
 /**
- * @param {Uint8Array} buf - The value to hash.
- * @param {number|string} alg - The algorithm to use eg 'sha1'
+ * @param {Uint8Array} bytes - The value to hash.
+ * @param {HashName} alg - The algorithm to use eg 'sha1'
  * @param {number} [length] - Optionally trim the result to this length.
  * @returns {Promise<Uint8Array>}
  */
-Multihashing.digest = async (buf, alg, length) => {
+Multihashing.digest = async (bytes, alg, length) => {
   const hash = Multihashing.createHash(alg)
-  const digest = await hash(buf)
+  const digest = await hash(bytes)
   return length ? digest.slice(0, length) : digest
 }
 
 /**
  * Creates a function that hashes with the given algorithm
  *
- * @param {string|number} alg - The algorithm to use eg 'sha1'
- *
- * @returns {function} - The hash function corresponding to `alg`
+ * @param {HashName} alg - The algorithm to use eg 'sha1'
+ * @returns {Digest} - The hash function corresponding to `alg`
  */
 Multihashing.createHash = function (alg) {
   if (!alg) {
-    throw errcode(new Error('hash algorithm must be specified'), 'ERR_HASH_ALGORITHM_NOT_SPECIFIED')
+    const e = errcode(new Error('hash algorithm must be specified'), 'ERR_HASH_ALGORITHM_NOT_SPECIFIED')
+    throw e
   }
 
-  alg = multihash.coerceCode(alg)
-  if (!Multihashing.functions[alg]) {
+  const code = multihash.coerceCode(alg)
+  if (!Multihashing.functions[code]) {
     throw errcode(new Error(`multihash function '${alg}' not yet supported`), 'ERR_HASH_ALGORITHM_NOT_SUPPORTED')
   }
 
-  return Multihashing.functions[alg]
+  return Multihashing.functions[code]
 }
 
 /**
  * Mapping of multihash codes to their hashing functions.
- * @type {Object}
+ *
+ * @type {Record<number, Digest>}
  */
+// @ts-ignore - most of those functions aren't typed
 Multihashing.functions = {
   // identity
   0x00: crypto.identity,
@@ -98,8 +106,13 @@ Multihashing.functions = {
 // add blake functions
 crypto.addBlake(Multihashing.functions)
 
-Multihashing.validate = async (buf, hash) => {
-  const newHash = await Multihashing(buf, multihash.decode(hash).name)
+/**
+ * @param {Uint8Array} bytes
+ * @param {Uint8Array} hash
+ * @returns {Promise<boolean>}
+ */
+Multihashing.validate = async (bytes, hash) => {
+  const newHash = await Multihashing(bytes, multihash.decode(hash).name)
 
   return equals(hash, newHash)
 }
