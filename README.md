@@ -3,11 +3,8 @@
 [![](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square)](http://ipn.io)
 [![](https://img.shields.io/badge/project-multiformats-blue.svg?style=flat-square)](https://github.com/multiformats/multiformats)
 [![](https://img.shields.io/badge/freenode-%23ipfs-blue.svg?style=flat-square)](https://webchat.freenode.net/?channels=%23ipfs)
-[![Coverage Status](https://coveralls.io/repos/github/multiformats/js-multihashing-async/badge.svg?branch=master)](https://coveralls.io/github/multiformats/js-multihashing-async?branch=master)
-[![Travis CI](https://flat.badgen.net/travis/ipfs/js-multihashing-async)](https://travis-ci.com/ipfs/js-multihashing-async)
-[![Dependency Status](https://david-dm.org/multiformats/js-multihashing-async.svg?style=flat-square)](https://david-dm.org/multiformats/js-multihashing-async)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
-[![](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![codecov](https://img.shields.io/codecov/c/github/multiformats/js-multihashing-async.svg?style=flat-square)](https://codecov.io/gh/multiformats/js-multihashing-async)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/multiformats/js-multihashing-async/ci?label=ci&style=flat-square)](https://github.com/multiformats/js-multihashing-async/actions?query=branch%3Amaster+workflow%3Aci+)
 
 > Use all the functions in [multihash](https://github.com/multiformats/multihash).
 
