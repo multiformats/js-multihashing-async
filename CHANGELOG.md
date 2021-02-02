@@ -1,3 +1,12 @@
+# [2.1.0](https://github.com/multiformats/js-multihashing-async/compare/v2.0.1...v2.1.0) (2021-02-02)
+
+
+### Features
+
+* add types to the library ([#92](https://github.com/multiformats/js-multihashing-async/issues/92)) ([4b16057](https://github.com/multiformats/js-multihashing-async/commit/4b1605755df620d0a5193ad0d682206e000ccb06))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/multiformats/js-multihashing-async/compare/v2.0.0...v2.0.1) (2020-08-05)
 
