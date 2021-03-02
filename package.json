@@ -30,9 +30,9 @@
     "check": "aegir ts -p check",
     "prepare": "aegir build --no-bundle",
     "docs": "aegir docs",
-    "release": "aegir release --docs",
-    "release-minor": "aegir release --type minor --docs",
-    "release-major": "aegir release --type major --docs",
+    "release": "aegir release",
+    "release-minor": "aegir release --type minor",
+    "release-major": "aegir release --type major",
     "build": "aegir build",
     "bench": "node benchmarks/hash.js"
   },
@@ -40,21 +40,27 @@
     "blakejs": "^1.1.0",
     "err-code": "^3.0.0",
     "js-sha3": "^0.8.0",
-    "multihashes": "^3.1.2",
+    "multihashes": "^4.0.1",
     "murmurhash3js-revisited": "^3.0.0",
-    "uint8arrays": "^2.0.5"
+    "uint8arrays": "^2.1.3"
   },
   "devDependencies": {
     "@types/sinon": "^9.0.10",
-    "aegir": "^30.3.0",
+    "aegir": "^31.0.1",
     "benchmark": "^2.1.4",
-    "sinon": "^9.0.2"
+    "sinon": "^9.0.2",
+    "util": "^0.12.3"
   },
   "eslintConfig": {
     "extends": "ipfs"
   },
+  "aegir": {
+    "build": {
+      "bundlesizeMax": "15kB"
+    }
+  },
   "engines": {
-    "node": ">=10.0.0",
+    "node": ">=14.0.0",
     "npm": ">=6.0.0"
   },
   "contributors": [
