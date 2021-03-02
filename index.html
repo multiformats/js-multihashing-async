@@ -3,120 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>multihashing-async - v2.1.0</title>
-	<meta name="description" content="Documentation for multihashing-async - v2.1.0">
+	<title>multihashing-async - v2.1.1</title>
+	<meta name="description" content="Documentation for multihashing-async - v2.1.1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
-	<link href="https://unpkg.com/nord-highlightjs@0.1.0/dist/nord.css" rel="stylesheet" type="text/css" />
-	<style>
-        .toolbar-icon {
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-        .toolbar-icon-search {
-            box-sizing: border-box;
-            position: absolute;
-            overflow: hidden;
-            right: -40px;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            @media (min-width: 901px){
-                display: none
-            }
-        }
-            @media (min-width: 901px){
-                .toolbar-icon-menu {
-                    display: none
-                }
-                .toolbar-icon-options {
-                    display: none
-                }
-            }
-
-        .gg-menu {
-            transform: scale(var(--ggs,1))
-        }
-        .gg-menu,
-        .gg-menu::after,
-        .gg-menu::before {
-            box-sizing: border-box;
-            position: relative;
-            display: block;
-            width: 20px;
-            height: 2px;
-            border-radius: 3px;
-            background: currentColor
-        }
-        .gg-menu::after,
-        .gg-menu::before {
-            content: "";
-            position: absolute;
-            top: -6px
-        }
-        .gg-menu::after {
-            top: 6px
-        }
-        .gg-options {
-            box-sizing: border-box;
-            position: relative;
-            display: block;
-            transform: scale(var(--ggs,1));
-            width: 10px;
-            height: 2px;
-            box-shadow:
-                -3px 4px 0 0,
-                3px -4px 0 0
-        }
-        .gg-options::after,
-        .gg-options::before {
-            content: "";
-            display: block;
-            box-sizing: border-box;
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            border: 2px solid;
-            border-radius: 100%
-        }
-        .gg-options::before {
-            top: -7px;
-            left: -4px
-        }
-        .gg-options::after {
-            bottom: -7px;
-            right: -4px
-        }
-        .gg-search {
-            box-sizing: border-box;
-            position: relative;
-            display: block;
-            transform: scale(var(--ggs,1));
-            width: 16px;
-            height: 16px;
-            border: 2px solid;
-            border-radius: 100%;
-            margin-left: -4px;
-            margin-top: -4px
-        }
-        .gg-search::after {
-            content: "";
-            display: block;
-            box-sizing: border-box;
-            position: absolute;
-            border-radius: 3px;
-            width: 2px;
-            height: 8px;
-            background: currentColor;
-            transform: rotate(-45deg);
-            top: 10px;
-            left: 12px
-        }
-    </style>
+	<script async src="assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -125,26 +16,41 @@
 			<div class="table-wrap">
 				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
 					<div class="field">
-						<label for="tsd-search-field" class="toolbar-icon toolbar-icon-search"><i class="gg-search"></i></label>
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
 					</div>
 					<ul class="results">
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">multihashing-async - v2.1.0</a>
+					<a href="index.html" class="title">multihashing-async - v2.1.1</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
-					<a href="#" class="toolbar-icon toolbar-icon-menu" data-toggle="menu"><i class="gg-menu"></i></a>
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<ul class="tsd-breadcrumb">
-			</ul>
-			<h1>multihashing-async - v2.1.0</h1>
+			<h1>multihashing-async - v2.1.1</h1>
 		</div>
 	</div>
 </header>
@@ -209,9 +115,9 @@
 				<a href="#in-nodejs-through-npm" id="in-nodejs-through-npm" style="color: inherit; text-decoration: none;">
 					<h3>In Node.js through npm</h3>
 				</a>
-				<pre><code class="language-bash">$ npm install --save multihashing-async
+				<pre><code class="language-bash"><span style="color: #000000">$ npm install --save multihashing-async</span>
 </code></pre>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> multihashing = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;multihashing-async&#x27;</span>)
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">multihashing</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;multihashing-async&#039;</span><span style="color: #000000">)</span>
 </code></pre>
 				<a href="#use-in-a-browser-with-browserify-webpack-or-any-other-bundler" id="use-in-a-browser-with-browserify-webpack-or-any-other-bundler" style="color: inherit; text-decoration: none;">
 					<h3>Use in a browser with browserify, webpack or any other bundler</h3>
@@ -219,31 +125,31 @@
 				<p>The code published to npm that gets loaded on require is in fact a ES5 transpiled
 					version with the right shims added. This means that you can require it and use with
 				your favourite bundler without having to adjust asset management process.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> multihashing = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;multihashing-async&#x27;</span>)
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">multihashing</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;multihashing-async&#039;</span><span style="color: #000000">)</span>
 </code></pre>
 				<a href="#use-in-a-browser-using-a-script-tag" id="use-in-a-browser-using-a-script-tag" style="color: inherit; text-decoration: none;">
 					<h3>Use in a browser Using a script tag</h3>
 				</a>
 				<p>Loading this module through a script tag will make the <code>multihashing</code> obj
 				available in the global namespace.</p>
-				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/multihashing-async/dist/index.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- OR --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/multihashing-async/dist/index.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+				<pre><code class="language-html"><span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;https://unpkg.com/multihashing-async/dist/index.min.js&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span>
+<span style="color: #008000">&lt;!-- OR --&gt;</span>
+<span style="color: #800000">&lt;script</span><span style="color: #000000FF"> </span><span style="color: #FF0000">src</span><span style="color: #000000FF">=</span><span style="color: #0000FF">&quot;https://unpkg.com/multihashing-async/dist/index.js&quot;</span><span style="color: #800000">&gt;&lt;/script&gt;</span>
 </code></pre>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> multihashing = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;multihashing-async&#x27;</span>)
-<span class="hljs-keyword">const</span> bytes = <span class="hljs-keyword">new</span> TextEncoder().encode(<span class="hljs-string">&#x27;beep boop&#x27;</span>)
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">multihashing</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;multihashing-async&#039;</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">bytes</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">TextEncoder</span><span style="color: #000000">().</span><span style="color: #795E26">encode</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;beep boop&#039;</span><span style="color: #000000">)</span>
 
-<span class="hljs-keyword">const</span> mh = <span class="hljs-keyword">await</span> multihashing(bytes, <span class="hljs-string">&#x27;sha1&#x27;</span>)
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">mh</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">multihashing</span><span style="color: #000000">(</span><span style="color: #001080">bytes</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;sha1&#039;</span><span style="color: #000000">)</span>
 
-<span class="hljs-comment">// Use `.digest(...)` if you want only the hash digest (drops the prefix indicating the hash type).</span>
-<span class="hljs-keyword">const</span> digest = <span class="hljs-keyword">await</span> multihashing.digest(bytes, <span class="hljs-string">&#x27;sha1&#x27;</span>)
+<span style="color: #008000">// Use `.digest(...)` if you want only the hash digest (drops the prefix indicating the hash type).</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">digest</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">multihashing</span><span style="color: #000000">.</span><span style="color: #795E26">digest</span><span style="color: #000000">(</span><span style="color: #001080">bytes</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;sha1&#039;</span><span style="color: #000000">)</span>
 
-<span class="hljs-comment">// Use `.createHash(...)` for the raw hash functions</span>
-<span class="hljs-keyword">const</span> hash = multihashing.createHash(<span class="hljs-string">&#x27;sha1&#x27;</span>)
-<span class="hljs-keyword">const</span> digest = <span class="hljs-keyword">await</span> hash(bytes)
+<span style="color: #008000">// Use `.createHash(...)` for the raw hash functions</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">hash</span><span style="color: #000000"> = </span><span style="color: #001080">multihashing</span><span style="color: #000000">.</span><span style="color: #795E26">createHash</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;sha1&#039;</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">digest</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">hash</span><span style="color: #000000">(</span><span style="color: #001080">bytes</span><span style="color: #000000">)</span>
 </code></pre>
 				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
 					<h2>Examples</h2>
@@ -251,20 +157,20 @@
 				<a href="#multihash-output" id="multihash-output" style="color: inherit; text-decoration: none;">
 					<h3>Multihash output</h3>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> multihashing = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;multihashing-async&#x27;</span>)
-<span class="hljs-keyword">const</span> bytes = <span class="hljs-keyword">new</span> TextEncoder().encode(<span class="hljs-string">&#x27;beep boop&#x27;</span>)
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">multihashing</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;multihashing-async&#039;</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">bytes</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">TextEncoder</span><span style="color: #000000">().</span><span style="color: #795E26">encode</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;beep boop&#039;</span><span style="color: #000000">)</span>
 
-<span class="hljs-keyword">const</span> mh = <span class="hljs-keyword">await</span> multihashing(bytes, <span class="hljs-string">&#x27;sha1&#x27;</span>)
-<span class="hljs-built_in">console</span>.log(mh)
-<span class="hljs-comment">// =&gt; &lt;Uint8Array 11 14 7c 83 57 57 7f 51 d4 f0 a8 d3 93 aa 1a aa fb 28 86 3d 94 21&gt;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">mh</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">multihashing</span><span style="color: #000000">(</span><span style="color: #001080">bytes</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;sha1&#039;</span><span style="color: #000000">)</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">mh</span><span style="color: #000000">)</span>
+<span style="color: #008000">// =&gt; &lt;Uint8Array 11 14 7c 83 57 57 7f 51 d4 f0 a8 d3 93 aa 1a aa fb 28 86 3d 94 21&gt;</span>
 
-<span class="hljs-keyword">const</span> mh = <span class="hljs-keyword">await</span> multihashing(bytes, <span class="hljs-string">&#x27;sha2-256&#x27;</span>)
-<span class="hljs-built_in">console</span>.log(mh)
-<span class="hljs-comment">// =&gt; &lt;Uint8Array 12 20 90 ea 68 8e 27 5d 58 05 67 32 50 32 49 2b 59 7b c7 72 21 c6 24 93 e7 63 30 b8 5d dd a1 91 ef 7c&gt;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">mh</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">multihashing</span><span style="color: #000000">(</span><span style="color: #001080">bytes</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;sha2-256&#039;</span><span style="color: #000000">)</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">mh</span><span style="color: #000000">)</span>
+<span style="color: #008000">// =&gt; &lt;Uint8Array 12 20 90 ea 68 8e 27 5d 58 05 67 32 50 32 49 2b 59 7b c7 72 21 c6 24 93 e7 63 30 b8 5d dd a1 91 ef 7c&gt;</span>
 
-<span class="hljs-keyword">const</span> mh = <span class="hljs-keyword">await</span> multihashing(bytes, <span class="hljs-string">&#x27;sha2-512&#x27;</span>)
-<span class="hljs-built_in">console</span>.log(mh)
-<span class="hljs-comment">// =&gt; &lt;Uint8Array 13 40 14 f3 01 f3 1b e2 43 f3 4c 56 68 93 78 83 77 1f a3 81 00 2f 1a aa 5f 31 b3 f7 8e 50 0b 66 ff 2f 4f 8e a5 e3 c9 f5 a6 1b d0 73 e2 45 2c 48 04 84 b0 ...&gt;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">mh</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">multihashing</span><span style="color: #000000">(</span><span style="color: #001080">bytes</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;sha2-512&#039;</span><span style="color: #000000">)</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">mh</span><span style="color: #000000">)</span>
+<span style="color: #008000">// =&gt; &lt;Uint8Array 13 40 14 f3 01 f3 1b e2 43 f3 4c 56 68 93 78 83 77 1f a3 81 00 2f 1a aa 5f 31 b3 f7 8e 50 0b 66 ff 2f 4f 8e a5 e3 c9 f5 a6 1b d0 73 e2 45 2c 48 04 84 b0 ...&gt;</span>
 </code></pre>
 				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
 					<h2>API</h2>
@@ -285,31 +191,25 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class=" tsd-kind-module">
-						<a href="modules/__multihashing_async_.html"> multihashing-async</a>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/__users_hd_code_pl_js_multihashing_async_src_blake_.html">/Users/hd/code/pl/js-multihashing-async/src/blake</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/__users_hd_code_pl_js_multihashing_async_src_crypto_.html">/Users/hd/code/pl/js-multihashing-async/src/crypto</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/__users_hd_code_pl_js_multihashing_async_src_sha_.html">/Users/hd/code/pl/js-multihashing-async/src/sha</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/__users_hd_code_pl_js_multihashing_async_src_sha_browser_.html">/Users/hd/code/pl/js-multihashing-async/src/sha.browser</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/__users_hd_code_pl_js_multihashing_async_src_types_.html">/Users/hd/code/pl/js-multihashing-async/src/types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/__users_hd_code_pl_js_multihashing_async_src_utils_.html">/Users/hd/code/pl/js-multihashing-async/src/utils</a>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/default.html">default</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#digest" class="tsd-kind-icon">Digest</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#hashname" class="tsd-kind-icon">Hash<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#multihashing" class="tsd-kind-icon">Multihashing</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -319,15 +219,6 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-			</ul>
 		</div>
 	</div>
 </footer>
