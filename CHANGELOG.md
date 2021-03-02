@@ -1,3 +1,12 @@
+## [2.1.1](https://github.com/multiformats/js-multihashing-async/compare/v2.1.0...v2.1.1) (2021-03-02)
+
+
+### Bug Fixes
+
+* update to aegir v31 and others deps ([#99](https://github.com/multiformats/js-multihashing-async/issues/99)) ([fa88cbc](https://github.com/multiformats/js-multihashing-async/commit/fa88cbcedc6c3713f32e89ab04c5f7c429c48c52))
+
+
+
 # [2.1.0](https://github.com/multiformats/js-multihashing-async/compare/v2.0.1...v2.1.0) (2021-02-02)
 
 
