@@ -1,3 +1,12 @@
+## [2.1.2](https://github.com/multiformats/js-multihashing-async/compare/v2.1.1...v2.1.2) (2021-03-03)
+
+
+### Bug Fixes
+
+* revert to node 12 ([39d843d](https://github.com/multiformats/js-multihashing-async/commit/39d843d85e9bbfd083be5f2c3ebce1f84b202dbd))
+
+
+
 ## [2.1.1](https://github.com/multiformats/js-multihashing-async/compare/v2.1.0...v2.1.1) (2021-03-02)
 
 
