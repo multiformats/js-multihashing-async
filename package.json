@@ -1,6 +1,6 @@
 {
   "name": "multihashing-async",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "multiple hash functions",
   "keywords": [
     "multihash",
