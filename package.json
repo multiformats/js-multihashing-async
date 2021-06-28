@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@types/sinon": "^9.0.10",
-    "aegir": "^31.0.1",
+    "aegir": "^33.2.2",
     "benchmark": "^2.1.4",
     "sinon": "^9.0.2",
     "util": "^0.12.3"
