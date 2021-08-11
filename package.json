@@ -1,6 +1,6 @@
 {
   "name": "multihashing-async",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "multiple hash functions",
   "keywords": [
     "multihash",
@@ -65,8 +65,8 @@
   },
   "contributors": [
     "David Dias <daviddias.p@gmail.com>",
-    "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "Hugo Dias <hugomrdias@gmail.com>",
+    "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "achingbrain <alex@achingbrain.net>",
     "Juan Batiz-Benet <juan@benet.ai>",
     "Richard Littauer <richard.littauer@gmail.com>",
