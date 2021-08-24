@@ -3,7 +3,7 @@
 const errcode = require('err-code')
 const multihash = require('multihashes')
 const crypto = require('./crypto')
-const equals = require('uint8arrays/equals')
+const { equals } = require('uint8arrays/equals')
 
 /**
  * @typedef {import("./types").Digest} Digest

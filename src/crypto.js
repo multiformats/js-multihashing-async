@@ -5,7 +5,7 @@ const sha3 = require('js-sha3')
 const mur = require('murmurhash3js-revisited')
 const { factory: sha } = require('./sha')
 const { fromNumberTo32BitBuf } = require('./utils')
-const uint8ArrayFromString = require('uint8arrays/from-string')
+const { fromString: uint8ArrayFromString } = require('uint8arrays/from-string')
 
 // Note that although this function doesn't do any asynchronous work, we mark
 // the function as async because it must return a Promise to match the API
